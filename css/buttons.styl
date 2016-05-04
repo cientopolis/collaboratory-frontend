@@ -1,0 +1,103 @@
+.secret-button
+  @extends $reset-button
+
+.standard-button
+  @extends $reset-button
+  background: MAIN_HIGHLIGHT
+  border-radius: 3px
+  color: white
+  padding: 0.4em 1.4em
+  text-align: center
+
+  &:hover
+    background: lighten(MAIN_HIGHLIGHT, 20%)
+
+  &:disabled
+    pointer-events: none
+
+  &.full
+    display: block
+    width: 100%
+
+.major-button
+  @extends .standard-button
+  background: SECOND_HIGHLIGHT
+  font-weight: bold
+
+  &:hover
+    background: lighten(SECOND_HIGHLIGHT, 20%)
+
+.minor-button
+  @extends .standard-button
+  color: FOREGROUND
+  background: lighten(#424242, 90%)
+
+  &:hover
+    background: lighten(#424242, 95%)
+
+  &.active
+    @extends .standard-button
+
+.pill-button
+  @extends $reset-button
+  border-radius: 1em
+  box-shadow: 0 0 1px inset
+  display: inline-block
+  font-size: 0.7em
+  line-height: 1.2
+  padding: 0 0.8em 0 0.5em
+  vertical-align: middle
+
+.on-home-page, .on-landing-page
+  .secret-button
+    font-size: 14px
+
+  .standard-button
+    @extends $reset-button
+    background: COBOLT_BLUE
+    border-radius: 4px
+    color: white
+    font-size: 14px
+    padding: 1em
+
+    &:hover
+      background: lighten(COBOLT_BLUE, 20%)
+
+    &:disabled
+      pointer-events: none
+
+    &.full
+      display: block
+      width: 100%
+
+    &.x-large
+      font-weight: 700
+      width: 250px
+
+    &.large
+      width: 160px
+
+    &.medium
+      width: 120px
+
+    &.small
+      width: 80px
+
+    &.project-card-button
+      font-size: 14px
+
+.on-all-projects-page
+  .standard-button .project-card-button
+    font-size: 14px
+
+.ghost-button
+  @extends $reset-button
+  background: transparent
+  border: 3px solid COBOLT_BLUE
+  border-radius: 4px
+  color: COBOLT_BLUE
+  position: static // position: relative inherited from $reset-button was causing inconsistent rendering in chrome
+
+  &:hover
+    background: COBOLT_BLUE
+    color: white

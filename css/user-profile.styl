@@ -1,0 +1,38 @@
+@require "./user-profile-header"
+@require './talk'
+
+.user-profile
+  background-color: #fbfbfb
+
+  .user-profile-hero
+    position: relative
+    .overlay
+      background-color: #0072ff
+      left: 0
+      top: 0
+      bottom: 0
+      right 0
+      opacity: 0.7
+      position: absolute
+
+    .hero-container
+      position: relative
+      z-index: 1
+
+  .user-profile-content
+    font-size: 15px
+    line-height: 1.5
+    margin: 0 3vw
+
+  .private-message-page
+    max-width: 800px
+    margin: 0 auto
+
+    .block-user
+      .block-button
+        @extend .talk button:not(.link-style)
+
+      .description
+        display: inline-block
+        margin: auto 10px
+        color: #989898

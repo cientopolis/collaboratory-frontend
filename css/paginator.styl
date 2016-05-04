@@ -1,0 +1,27 @@
+.paginator
+  text-align: center
+
+  > button
+    margin: 5px
+
+  .paginator-page-selector
+    display: inline-block
+
+    > select, > select > option
+      color: black
+
+  .paginator-prev
+    background: none
+    color: FOREGROUND
+    &:hover
+      background: FAILURE
+      color: #fff
+      border-color: darken(FAILURE, 10%)
+
+  .paginator-next
+    background: none
+    color: FOREGROUND
+    &:hover
+      background: SUCCESS
+      color: #fff
+      border-color: darken(SUCCESS, 10%)

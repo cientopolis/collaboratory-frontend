@@ -1,0 +1,110 @@
+.home-page
+  background: #f4f4f4
+
+  .hero
+    align-items: center
+    background: url(./assets/zoohome-hero.jpg) top left no-repeat
+    background-size: cover
+    color: #f9f9f9
+    display: flex
+    flex-direction: column
+    min-height: 800px
+    justify-content: center
+    padding: 0 3vw
+    text-align: center
+
+    @media screen and (max-width: 400px)
+      svg
+        margin-top: 15vh
+
+    .hero-title
+      color: inherit
+      font-weight: 300
+      line-height: 40px
+      padding: 1.5em 0 0.5em
+
+    .hero-tagline
+      color: inherit
+      font-size: 1.6em
+      line-height: 22px
+      margin: 0 auto
+      max-width: 600px
+      padding: 1em 0 6.5em
+
+    .hero-button
+      box-sizing: border-box
+      color: #fbfbfb
+      font-size: 1.6em
+      font-weight: 400
+      margin-bottom: 3vh
+
+      &:hover
+        background: lighten(COBOLT_BLUE, 20%)
+
+  .featured-projects, .recent-projects
+    align-items: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 4.5em 0 8em
+    text-align: center
+
+    h5
+      font-weight: 300
+
+    .featured-projects-list, .recent-projects-list
+      column-width: 22em
+      column-gap: 2.5em
+      display: flex
+      flex-wrap: wrap
+      margin: 4.6em 3vw
+      max-width: 960px
+      width: 100%
+      justify-content: center
+
+    .recent-projects-list
+      justify-content: center
+
+  .recent-projects
+    padding: 2.5em 0
+
+  .about-zooniverse
+    align-items: center
+    display: flex
+    flex-direction: column
+    text-align: center
+
+    .about-items-list
+      width: 100%
+
+      .about-item
+        display: flex
+        justify-content: center
+        padding: 17.5em 0
+        position: relative
+
+        &:nth-child(even)
+          background-color: #E8E8E8
+
+        .about-item-wrapper
+          display: flex
+          flex-wrap: wrap
+          justify-content: center
+          max-width: 960px
+          width: 100%
+
+          .about-image
+            width: 250px
+            height: 250px
+
+          .about-item-content
+            display: inline-flex
+            flex-basis: 450px
+            flex-direction: column
+            justify-content: center
+            margin: 2em 0
+            padding: 0 5.5vw
+            text-align: left
+
+            p
+              color: #5a5a5a
