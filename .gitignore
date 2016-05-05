@@ -10,3 +10,5 @@
 /public/jsPlumb.min.js
 
 .DS_Store
+
+npm-debug.log
