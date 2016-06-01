@@ -80,26 +80,6 @@ FeaturedProjects = React.createClass
       './assets/simple-avatar.jpg'
     Promise.resolve src
 
-  render: ->
-    <div className="featured-projects">
-      <PromiseRenderer promise={apiClient.type('projects').get(id: FEATURED_PRODUCT_IDS, cards: true)}>{(projects) =>
-        if projects?
-          <div className="featured-projects-list">
-          {for project in projects
-            [owner, name] = project.slug.split('/')
-            <OwnedCard
-              key={project.id}
-              resource={project}
-              linkTo="/projects/#{owner}/#{name}"
-              translationObjectName="projectsPage"
-              imagePromise={@imagePromise(project)}
-              skipOwner={true} />
-          }
-          </div>
-      }</PromiseRenderer>
-      <Link to="/projects" className="call-to-action standard-button x-large"><Translate content="home.featuredProjects.button" /></Link>
-    </div>
-
 module.exports = React.createClass
   displayName: 'HomePage'
 
