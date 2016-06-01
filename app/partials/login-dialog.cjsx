@@ -10,6 +10,11 @@ counterpart.registerTranslations 'en',
     signIn: 'Sign in'
     register: 'Register'
 
+counterpart.registerTranslations 'es',
+  signInDialog:
+    signIn: 'Ingresar'
+    register: 'Registrarse'
+
 module.exports = React.createClass
   displayName: 'LoginDialog'
 

@@ -11,6 +11,14 @@ counterpart.registerTranslations 'en',
     button: 'Get Started'
     notFoundMessage: 'Sorry, no projects found'
 
+counterpart.registerTranslations 'es',
+  projectsPage:
+    title: 'Todos los proyectos'
+    countMessage: 'Mostrando %(pageStart)s-%(pageEnd)s de %(count)s encontrados'
+    button: 'Unirse'
+    notFoundMessage: 'No se encontraron proyectos'
+
+
 module.exports = React.createClass
   displayName: 'ProjectsPage'
 

@@ -33,6 +33,34 @@ counterpart.registerTranslations 'en',
       status: 'System Status'
       security: 'Security'
 
+counterpart.registerTranslations 'es',
+  footer:
+    adminMode: 'Admin mode'
+    discover:
+      title: 'Proyectos'
+      projectList: 'Proyectos'
+      collectionList: 'Colecciones'
+      projectBuilder: 'Construya un proyecto'
+      howToGuide: 'Cómo construir un proyecto'
+      projectBuilderPolicies: 'Políticas de construcción'
+    about:
+      title: 'About'
+      aboutUs: 'About Us'
+      ourTeam: 'Our Team'
+      education: 'Education'
+      publications: 'Publications'
+    talk:
+      title: 'Talk'
+      zooTalk: 'Zooniverse Talk'
+      daily: 'Daily Zooniverse'
+      blog: 'Blog'
+    boilerplate:
+      contact: 'Contact Us'
+      jobs: 'Jobs'
+      privacyPolicy: 'Privacy Policy'
+      status: 'System Status'
+      security: 'Security'
+
 AdminToggle = React.createClass
   displayName: 'AdminToggle'
 
@@ -93,9 +121,6 @@ module.exports = React.createClass
             <Link to="/collections"><Translate content="footer.discover.collectionList" /></Link>
             <Link to="/lab"><Translate content="footer.discover.projectBuilder" /></Link>
             <Link to="/lab-how-to"><Translate content="footer.discover.howToGuide" /></Link>
-            <Link to="/lab-policies"><Translate content="footer.discover.projectBuilderPolicies" /></Link>
-            {if process.env.NODE_ENV isnt 'production'
-              <Link to="/dev/classifier">Dev Classifier</Link>}
           </div>
           <div className="site-map-section social-media">
             <a href="https://www.facebook.com/cientopolis" target="_blank"><i className="fa fa-facebook"></i></a>

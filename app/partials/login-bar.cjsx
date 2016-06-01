@@ -9,6 +9,12 @@ counterpart.registerTranslations 'en',
     signIn: 'Sign in'
     register: 'Register'
 
+counterpart.registerTranslations 'es',
+  loginBar:
+    signIn: 'Ingresar'
+    register: 'Registrarse'
+
+
 module.exports = React.createClass
   displayName: 'LoginBar'
 

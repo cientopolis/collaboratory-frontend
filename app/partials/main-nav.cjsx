@@ -10,6 +10,12 @@ counterpart.registerTranslations 'en',
     projects: 'Projects'
     about: 'About'
 
+counterpart.registerTranslations 'es',
+  nav:
+    home: 'Zooniverse'
+    projects: 'Projects'
+    about: 'About'    
+
 module.exports = React.createClass
   displayName: 'MainNav'
 

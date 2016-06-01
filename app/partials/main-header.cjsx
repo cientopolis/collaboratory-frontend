@@ -27,6 +27,19 @@ counterpart.registerTranslations 'en',
     admin: 'Admin'
     notifications: 'Notifications'
 
+counterpart.registerTranslations 'es',
+  mainNav:
+    home: 'Inicio'
+    projects: 'Proyectos'
+    about: 'Sobre nosotros'
+    collect: 'Recolectar'
+    talk: 'Discusión'
+    facebook: 'Página de Facebook'
+    website: 'Sitio oficial'
+    lab: 'Construya un proyecto'
+    admin: 'Admin'
+    notifications: 'Notificaciones'
+
 MOBILE_WIDTH = 875 # px
 
 module.exports = React.createClass

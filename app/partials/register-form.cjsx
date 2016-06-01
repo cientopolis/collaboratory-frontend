@@ -34,6 +34,30 @@ counterpart.registerTranslations 'en',
     alreadySignedIn: 'Signed in as %(name)s'
     signOut: 'Sign out'
 
+counterpart.registerTranslations 'es',
+  registerForm:
+    required: 'Requerido'
+    looksGood: 'Parece adecuado'
+    userName: 'Nombre de usuario'
+    badChars: "Sólo letras, números, '.', '_', y '-'."
+    nameConflict: 'El nombre de usuario ya está en uso'
+    forgotPassword: '¿Olvidó su contraseña?'
+    password: 'Contraseña'
+    passwordTooShort: 'Debe ser de al menos 8 caracteres de longitud'
+    confirmPassword: 'Confirmar contraseña'
+    passwordsDontMatch: 'Las contraseñas no coinciden'
+    email: 'Dirección de correo electrónico'
+    emailConflict: 'Una cuenta con esta dirección de correo ya existe'
+    realName: 'Nombre real'
+    whyRealName: 'We’ll use this to give you credit in scientific papers, posters, etc'
+    agreeToPrivacyPolicy: 'You agree to our %(link)s (required)'
+    privacyPolicy: 'privacy policy'
+    okayToEmail: 'It’s okay to send me email every once in a while.'
+    betaTester: 'I’d like to help test new projects, and be emailed when they’re available.'
+    register: 'Register'
+    alreadySignedIn: 'Signed in as %(name)s'
+    signOut: 'Sign out'
+
 module.exports = React.createClass
   displayName: 'RegisterForm'
   mixins: [PromiseToSetState]

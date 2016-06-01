@@ -20,6 +20,14 @@ counterpart.registerTranslations 'en',
     collections: 'Collections'
     favorites: 'Favorites'
 
+counterpart.registerTranslations 'es',
+  accountMenu:
+    profile: 'Perfil'
+    settings: 'Opciones'
+    signOut: 'Cerrar sesión'
+    collections: 'Colecciones'
+    favorites: 'Favoritos'    
+
 module.exports = React.createClass
   displayName: 'AccountBar'
   mixins: [History]

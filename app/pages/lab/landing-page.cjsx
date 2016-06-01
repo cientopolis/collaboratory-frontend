@@ -22,6 +22,21 @@ counterpart.registerTranslations 'en',
       bestPractices: 'Best Practices Guide'
       buildTalk: 'Project Builder Talk'
 
+counterpart.registerTranslations 'es',
+  labLanding:
+    title: "Constructor de proyectos"
+    content: "Cualquiera puede construir un proyecto. Simplemente cargue los datos del proyecto y elija qué tareas realizarán sus colaboradores. Para saber más, lea [Cómo construir un proyecto](/lab-how-to), o presione el botón debajo para empezar."
+    buttons:
+      getStarted: "¡Sé parte ahora!"
+      signIn: "Ingresar"
+      backToProjects: "Volver al listado de proyectos"
+    links:
+      heading: 'Links de acceso rápido'
+      buildHelp: 'Ayuda para crear proyectos'
+      policies: 'Políticas de creación de proyectos'
+      bestPractices: 'Guía de buenas prácticas'
+      buildTalk: 'Discusión de creación de proyectos'
+
 module.exports = React.createClass
   displayName: 'ProjectBuilderLandingPage'
 
