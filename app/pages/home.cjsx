@@ -10,7 +10,7 @@ FEATURED_PRODUCT_IDS = require '../lib/featured-projects'
 {Markdown} = require 'markdownz'
 ProjectIcon = require '../components/project-icon'
 
-counterpart.setLocale('en')
+counterpart.setLocale('es')
 counterpart.registerTranslations 'en',
   home:
     hero:
@@ -43,9 +43,9 @@ counterpart.registerTranslations 'en',
 counterpart.registerTranslations 'es',
   home:
     hero:
-      title: 'Investigación impulsada por ciudadanos'
-      tagline: '''The Zooniverse provides opportunities for people around the world to contribute to real discoveries in fields ranging from astronomy to zoology. Welcome to the largest online platform for collaborative volunteer research.'''
-      button: '¡Sumate ahora!'
+      title: ''
+      tagline: '''Cientópolis te da la oportunidad de participar y contribuir activamente en diferentes proyectos de ciencia ciudadana'''
+      button: '¡Sé parte ahora!'
     about:
       contribute:
         title: 'Contribuí en proyectos nuevos de investigación'
@@ -61,8 +61,8 @@ counterpart.registerTranslations 'es',
         content: '''Our platform offers many opportunities for education, from using projects in classrooms to sharing information between volunteers. You can even use the [Zooniverse Project Builder](/lab) to create your very own project!'''
     featuredProjects:
       title: '¡Unite a un proyecto ahora mismo!'
-      loggedTitle: 'Get started on a new project right now!'
-      button: 'See all projects'
+      loggedTitle: '¡Comenzá ahora mismo!'
+      button: 'Ver todos los proyectos'
     recentProjects:
       title: "Welcome back! Jump into one of your recent projects..."
       altTitle: "Welcome! Jump into a new project..."
@@ -113,7 +113,7 @@ module.exports = React.createClass
     @props.user.get("project_preferences", page_size: 4, sort: '-updated_at')
 
   render: ->
-    aboutItems = ['contribute', 'explore', 'collaborate', 'discover']
+    aboutItems = ['contribute', 'collaborate']
 
     <div className="home-page">
       <section className="hero on-dark">

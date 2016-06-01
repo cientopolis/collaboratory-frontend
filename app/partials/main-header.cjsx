@@ -27,6 +27,19 @@ counterpart.registerTranslations 'en',
     admin: 'Admin'
     notifications: 'Notifications'
 
+counterpart.registerTranslations 'es',
+  mainNav:
+    home: 'Inicio'
+    projects: 'Proyectos'
+    about: 'Sobre nosotros'
+    collect: 'Recolectar'
+    talk: 'Discusión'
+    facebook: 'Página de Facebook'
+    website: 'Sitio oficial'
+    lab: 'Construya un proyecto'
+    admin: 'Admin'
+    notifications: 'Notificaciones'
+
 MOBILE_WIDTH = 875 # px
 
 module.exports = React.createClass
@@ -71,8 +84,6 @@ module.exports = React.createClass
   links: ->
     <nav className="main-nav #{@mobileClass()}">
       <Link to={"/projects"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.projects" /></Link>
-      <Link to={"/about"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.about" /></Link>
-      <Link to={"/talk"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.talk" /></Link>
       <Link to={"/notifications"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.notifications" /></Link>
       <Link to={"/collections"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.collect" /></Link>
       <hr />
@@ -81,8 +92,8 @@ module.exports = React.createClass
         <Link to={"/admin"} className="main-nav-item nav-build" activeClassName="active"><Translate className="minor" content="mainNav.admin" /></Link>}
       <TriggeredModalForm triggerProps={title: "Other Links"}trigger={<span className="main-nav-item"><i style={verticalAlign: 'middle'} className="fa fa-globe" /></span>}>
         <div className="modal-nav-links">
-          <a href="http://daily.zooniverse.org/" className="main-nav-item" target="_blank"><Translate content="mainNav.daily" /></a>
-          <a href="http://blog.zooniverse.org/"  className="main-nav-item" target="_blank"><Translate content="mainNav.blog" /></a>
+          <a href="http://www.facebook.com/cientopolis" className="main-nav-item" target="_blank"><Translate content="mainNav.daily" /></a>
+          <a href="http://cientopolis.lifia.info.unlp.edu.ar"  className="main-nav-item" target="_blank"><Translate content="mainNav.blog" /></a>
         </div>
       </TriggeredModalForm>
     </nav>

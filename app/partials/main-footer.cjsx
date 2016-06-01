@@ -33,6 +33,34 @@ counterpart.registerTranslations 'en',
       status: 'System Status'
       security: 'Security'
 
+counterpart.registerTranslations 'es',
+  footer:
+    adminMode: 'Admin mode'
+    discover:
+      title: 'Proyectos'
+      projectList: 'Proyectos'
+      collectionList: 'Colecciones'
+      projectBuilder: 'Construya un proyecto'
+      howToGuide: 'Cómo construir un proyecto'
+      projectBuilderPolicies: 'Políticas de construcción'
+    about:
+      title: 'About'
+      aboutUs: 'About Us'
+      ourTeam: 'Our Team'
+      education: 'Education'
+      publications: 'Publications'
+    talk:
+      title: 'Talk'
+      zooTalk: 'Zooniverse Talk'
+      daily: 'Daily Zooniverse'
+      blog: 'Blog'
+    boilerplate:
+      contact: 'Contact Us'
+      jobs: 'Jobs'
+      privacyPolicy: 'Privacy Policy'
+      status: 'System Status'
+      security: 'Security'
+
 AdminToggle = React.createClass
   displayName: 'AdminToggle'
 
@@ -93,36 +121,16 @@ module.exports = React.createClass
             <Link to="/collections"><Translate content="footer.discover.collectionList" /></Link>
             <Link to="/lab"><Translate content="footer.discover.projectBuilder" /></Link>
             <Link to="/lab-how-to"><Translate content="footer.discover.howToGuide" /></Link>
-            <Link to="/lab-policies"><Translate content="footer.discover.projectBuilderPolicies" /></Link>
-            {if process.env.NODE_ENV isnt 'production'
-              <Link to="/dev/classifier">Dev Classifier</Link>}
-          </div>
-          <div className="site-map-section">
-            <Translate component="h6" content="footer.about.title" />
-            <Link to="/about"><Translate content="footer.about.aboutUs" /></Link>
-            <Link to="/about/education"><Translate content="footer.about.education" /></Link>
-            <Link to="/about/team"><Translate content="footer.about.ourTeam" /></Link>
-            <Link to="/about/publications"><Translate content="footer.about.publications" /></Link>
-            <Link to="/about/contact"><Translate content="footer.boilerplate.contact" /></Link>
-          </div>
-          <div className="site-map-section">
-            <Translate component="h6" content="footer.talk.title" />
-            <Link to="/talk"><Translate content="footer.talk.zooTalk" /></Link>
-            <a href="http://daily.zooniverse.org/" target="_blank"><Translate content="footer.talk.daily" /></a>
-            <a href="http://blog.zooniverse.org/" target="_blank"><Translate content="footer.talk.blog" /></a>
           </div>
           <div className="site-map-section social-media">
-            <a href="https://www.facebook.com/therealzooniverse" target="_blank"><i className="fa fa-facebook"></i></a>
-            <a href="https://twitter.com/the_zooniverse" target="_blank"><i className="fa fa-twitter"></i></a>
-            <a href="https://plus.google.com/+ZooniverseOrgReal" target="_blank"><i className="fa fa-google-plus"></i></a>
+            <a href="https://www.facebook.com/cientopolis" target="_blank"><i className="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/cientopolis" target="_blank"><i className="fa fa-twitter"></i></a>
           </div>
         </nav>
       </div>
       <div className="footer-sole">
         <div className="centered-grid footer-sole-links">
           <Link to="/privacy"><Translate content="footer.boilerplate.privacyPolicy" /></Link>
-          <i className="fa fa-ellipsis-v footer-sole-links-separator"></i>
-          <a href="http://jobs.zooniverse.org/"><Translate content="footer.boilerplate.jobs" /></a>
           <i className="fa fa-ellipsis-v footer-sole-links-separator"></i>
           <a href="https://status.zooniverse.org/"><Translate content="footer.boilerplate.status" /></a>
           <i className="fa fa-ellipsis-v footer-sole-links-separator"></i>

@@ -14,6 +14,15 @@ counterpart.registerTranslations 'en',
     incorrectDetails: 'Username or password incorrect'
     forgotPassword: 'Forget your password?'
 
+counterpart.registerTranslations 'es',
+  signInForm:
+    signIn: 'Ingresar'
+    signOut: 'Cerrar sesión'
+    userName: 'Nombre de usuario o correo electrónico'
+    password: 'Contraseña'
+    incorrectDetails: 'Nombre de usuario o contraseña incorrecto'
+    forgotPassword: '¿Olvidó su contraseña?'
+
 module.exports = React.createClass
   displayName: 'SignInForm'
 
