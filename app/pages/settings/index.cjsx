@@ -12,6 +12,14 @@ counterpart.registerTranslations 'en',
       customizeProfile: "Customize Profile"
       email: "Email"
 
+counterpart.registerTranslations 'es',
+  userSettingsPage:
+    header: "Opciones"
+    nav:
+      accountInformation: "Información de la cuenta"
+      customizeProfile: "Customizar perfil"
+      email: "Correo electrónico"
+
 UserSettingsPage = React.createClass
   displayName: 'UserSettingsPage'
 

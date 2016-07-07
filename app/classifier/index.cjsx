@@ -213,7 +213,7 @@ Classifier = React.createClass
 
   renderSummary: (classification) ->
     <div>
-      Thanks!
+      ¡Gracias!
 
       {if @props.project?.slug is PULSAR_HUNTERS_SLUG or location.href.indexOf('fake-pulsar-feedback') isnt -1
         subjectClass = @props.subject.metadata['#Class']?.toUpperCase()
@@ -265,7 +265,7 @@ Classifier = React.createClass
           {if @state.showingExpertClassification
             'Expert classification:'
           else
-            'Your classification:'}
+            'Su clasificación:'}
         </strong>
         <ClassificationSummary workflow={@props.workflow} classification={classification} />
       </div>
@@ -276,7 +276,7 @@ Classifier = React.createClass
         {if @props.owner? and @props.project?
           [ownerName, name] = @props.project.slug.split('/')
           <Link onClick={@props.onClickNext} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button">Talk</Link>}
-        <button type="button" className="continue major-button" onClick={@props.onClickNext}>Next</button>
+        <button type="button" className="continue major-button" onClick={@props.onClickNext}>Siguiente</button>
         {@renderExpertOptions()}
       </nav>
     </div>
