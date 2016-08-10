@@ -8,7 +8,8 @@
 /public/main.js.map
 /public/vendor.js
 /public/jsPlumb.min.js
+/bin/config-dist.sh
 
 .DS_Store
 
-npm-debug.log
+npm-debug.log.*
