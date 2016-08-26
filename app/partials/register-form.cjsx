@@ -37,7 +37,7 @@ counterpart.registerTranslations 'en',
 counterpart.registerTranslations 'es',
   registerForm:
     required: 'Requerido'
-    looksGood: 'Parece adecuado'
+    looksGood: 'Nombre de usuario disponible'
     userName: 'Nombre de usuario'
     badChars: "Sólo letras, números, '.', '_', y '-'."
     nameConflict: 'El nombre de usuario ya está en uso'
@@ -49,14 +49,14 @@ counterpart.registerTranslations 'es',
     email: 'Dirección de correo electrónico'
     emailConflict: 'Una cuenta con esta dirección de correo ya existe'
     realName: 'Nombre real'
-    whyRealName: 'We’ll use this to give you credit in scientific papers, posters, etc'
-    agreeToPrivacyPolicy: 'You agree to our %(link)s (required)'
-    privacyPolicy: 'privacy policy'
-    okayToEmail: 'It’s okay to send me email every once in a while.'
-    betaTester: 'I’d like to help test new projects, and be emailed when they’re available.'
-    register: 'Register'
-    alreadySignedIn: 'Signed in as %(name)s'
-    signOut: 'Sign out'
+    whyRealName: 'Vamos a usarlo para darte crédito en publicaciones científicas, posters, etc'
+    agreeToPrivacyPolicy: 'Estás de acuerdo con nuestras %(link)s (requerido)'
+    privacyPolicy: 'políticas de privacidad'
+    okayToEmail: 'Estoy de acuerdo con recibir correos electrónicos de vez en cuando.'
+    betaTester: 'Me gustaría ayudar a probar nuevos proyectos, y que se me envíe un correo electrónico cuando estén disponubles'
+    register: 'Registrarse'
+    alreadySignedIn: 'Sesión iniciada como %(name)s'
+    signOut: 'Cerrar sesión'
 
 module.exports = React.createClass
   displayName: 'RegisterForm'
