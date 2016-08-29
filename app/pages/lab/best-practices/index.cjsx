@@ -13,6 +13,16 @@ counterpart.registerTranslations 'en',
       theLongHaul: 'In For the Long Haul'
       resources: 'Resources and Examples'
 
+counterpart.registerTranslations 'es',
+  bestPractices:
+    title: 'Buenas prácticas'
+    nav:
+      introduction: 'Introducción'
+      greatProject: 'Construyendo un gran proyecto'
+      launchRush: 'The Launch Rush'
+      theLongHaul: 'A largo plazo'
+      resources: 'Recursos y ejemplos'      
+
 module.exports = React.createClass
   displayName: 'LabBestPracticesNav'
 

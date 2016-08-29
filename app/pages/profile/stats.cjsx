@@ -1,7 +1,19 @@
 React = require 'react'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
 ClassificationsRibbon = require '../../components/classifications-ribbon'
 PromiseRenderer = require '../../components/promise-renderer'
 ProjectIcon = require '../../components/project-icon'
+
+counterpart.registerTranslations 'en',
+  body:
+    contributionStats: "Your contribution stats"
+    info: "Users can only view their own stats."
+
+counterpart.registerTranslations 'es',
+  body:
+    contributionStats: "Sus estadísticas en contribuciones" 
+    info: "Usuarios sólo podrán ver sus propias estadísticas" 
 
 module.exports = React.createClass
   getDefaultProps: ->
@@ -9,8 +21,8 @@ module.exports = React.createClass
 
   render: ->
     <div className="content-container">
-      <h3>Your contribution stats</h3>
-      <p className="form-help">Users can only view their own stats.</p>
+      <h3><Translate content="body.contributionStats" /></h3>
+      <p className="form-help"><Translate content="body.info" /></p>
       {if @props.profileUser is @props.user
         # TODO: Braces after "style" here confuse coffee-reactify. That's really annoying.
         centered = textAlign: 'center'
