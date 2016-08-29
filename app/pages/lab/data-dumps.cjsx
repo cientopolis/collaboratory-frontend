@@ -17,6 +17,17 @@ counterpart.registerTranslations 'en',
     commentsExport: "Request new talk comments export"
     tagsExport: "Request new talk tags export"
 
+counterpart.registerTranslations 'es',
+  projectDetails:
+    classificationExport: "Request new classification export"
+    aggregationExport: "Experimental - Request new aggregation export"
+    subjectExport: "Request new subject export"
+    workflowExport: "Request new workflow export"
+    workflowContentsExport: "Request new workflow contents export"
+    commentsExport: "Request new talk comments export"
+    tagsExport: "Request new talk tags export"
+
+
 module.exports = React.createClass
   displayName: 'GetDataExports'
 

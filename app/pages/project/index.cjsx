@@ -39,6 +39,18 @@ counterpart.registerTranslations 'en',
       education: 'Education'
       talk: 'Talk'
 
+counterpart.registerTranslations 'es',
+  project:
+    loading: 'Cargando proyecto'
+    disclaimer: "This project has been built using the Zooniverse Project Builder but is not yet an official Zooniverse project. Queries and issues relating to this project directed at the Zooniverse Team may not receive any response."
+    nav:
+      research: 'Investigación'
+      results: 'Resultados'
+      classify: 'Clasificar'
+      faq: 'FAQ'
+      education: 'Educación'
+      talk: 'Discusión'      
+
 ProjectAvatar = React.createClass
   displayName: 'ProjectAvatar'
 

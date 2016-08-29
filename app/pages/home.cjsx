@@ -64,10 +64,10 @@ counterpart.registerTranslations 'es',
       loggedTitle: '¡Comenzá ahora mismo!'
       button: 'Ver todos los proyectos'
     recentProjects:
-      title: "Welcome back! Jump into one of your recent projects..."
-      altTitle: "Welcome! Jump into a new project..."
-      button: 'See all your projects'
-      altButton: 'See all our projects'
+      title: "¡Bienvenido otra vez! Accedé a alguno de tus proyectos recientes..."
+      altTitle: "¡Bienvenido! Accedé a alguno de los proyectos nuevos..."
+      button: "Ver todos tus proyectos"
+      altButton: "Ver todos los proyectos"
 
 
 FeaturedProjects = React.createClass

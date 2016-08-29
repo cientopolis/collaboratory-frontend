@@ -21,8 +21,8 @@ counterpart.registerTranslations 'en',
     about: 'About'
     collect: 'Collect'
     talk: 'Talk'
-    daily: 'Daily Zooniverse'
-    blog: 'Blog'
+    facebook: 'Facebook page'
+    website: 'Official website'
     lab: 'Build a project'
     admin: 'Admin'
     notifications: 'Notifications'
@@ -81,6 +81,7 @@ module.exports = React.createClass
   mobileClass: ->
     if @state.mobile then 'mobile' else ''
 
+
   links: ->
     <nav className="main-nav #{@mobileClass()}">
       <Link to={"/projects"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.projects" /></Link>
@@ -92,8 +93,8 @@ module.exports = React.createClass
         <Link to={"/admin"} className="main-nav-item nav-build" activeClassName="active"><Translate className="minor" content="mainNav.admin" /></Link>}
       <TriggeredModalForm triggerProps={title: "Other Links"}trigger={<span className="main-nav-item"><i style={verticalAlign: 'middle'} className="fa fa-globe" /></span>}>
         <div className="modal-nav-links">
-          <a href="http://www.facebook.com/cientopolis" className="main-nav-item" target="_blank"><Translate content="mainNav.daily" /></a>
-          <a href="http://cientopolis.lifia.info.unlp.edu.ar"  className="main-nav-item" target="_blank"><Translate content="mainNav.blog" /></a>
+          <a href="http://www.facebook.com/cientopolis" className="main-nav-item" target="_blank"><Translate content="mainNav.facebook" /></a>
+          <a href="http://cientopolis.lifia.info.unlp.edu.ar"  className="main-nav-item" target="_blank"><Translate content="mainNav.website" /></a>
         </div>
       </TriggeredModalForm>
     </nav>

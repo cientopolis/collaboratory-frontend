@@ -11,5 +11,6 @@ module.exports = React.createClass
     useHTML = '''
       <use xlink:href="#zooniverse-logo-source" x="0" y="0" width="100" height="100" />
     '''
-
-    <svg viewBox="0 0 100 100" width={@props.width} height={@props.height} className="zooniverse-logo" dangerouslySetInnerHTML={__html: useHTML} />
+    <svg>
+      <image xlinkHref="http://127.0.0.1:3735/assets/cientopolis-chico.png" x="0" y="0" height="100" width="100" />
+    </svg>
