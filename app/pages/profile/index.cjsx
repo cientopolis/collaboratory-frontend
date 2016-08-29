@@ -20,6 +20,19 @@ counterpart.registerTranslations 'en',
       stats: "Your stats"
       settings: "Settings"
 
+counterpart.registerTranslations 'es',
+  profile:
+    title: "Hi, %(name)s!"
+    nav:
+      comments: "Comentarios recientes"
+      stats: "Estadísticas"
+      collections: "Colecciones"
+      favorites: "Favoritos"
+      message: "Mensaje"
+      moderation: "Moderación"
+      stats: "Sus estadísticas"
+      settings: "Opciones"      
+
 UserProfilePage = React.createClass
   displayName: 'UserProfilePage'
 
