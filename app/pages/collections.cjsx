@@ -17,6 +17,17 @@ counterpart.registerTranslations 'en',
     favorites: 'My Favorites'
     all: 'All'
 
+counterpart.registerTranslations 'es',
+  collectionsPage:
+    title: 'Colecciones de %(user) '
+    countMessage: 'Mostrando %(count)s encontradas'
+    button: 'Ver colección'
+    loadMessage: 'Cargando colecciones'
+    notFoundMessage: 'No se encontraron colecciones'
+    myCollections: 'Mis colecciones'
+    favorites: 'Mis favoritos'
+    all: 'Todos'    
+
 CollectionsNav = React.createClass
   displayName: 'CollectionsNav'
 

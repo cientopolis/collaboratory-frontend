@@ -1,9 +1,51 @@
 React = require 'react'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
 {Link} = require 'react-router'
 apiClient = require 'panoptes-client/lib/api-client'
 ModalFormDialog = require 'modal-form/dialog'
 projectActions = require './actions/project'
 LandingPage = require './landing-page'
+
+counterpart.registerTranslations 'en',
+  main:
+    project:
+      loading: "Loading..."
+      noProjects: "No projects"
+      button:
+        create: "Create a new project"
+        howTo: "How-to"
+        policies: "Policies"
+        bestPractices: "Best practices"
+        builderTalk: "Project builder talk"
+        edit: "Edit"
+        view: "View"
+      creation:
+        name: "Project name"
+        description: "Short description"
+        intro: "Introduction"
+        cancel: "Cancel"
+        create: "Create project"
+
+counterpart.registerTranslations 'es',
+  main:
+    project:
+      loading: "Cargando..."
+      noProjects: "No existen proyectos"
+      button:
+        create: "Crear un proyecto"
+        howTo: "Cómo crear"
+        policies: "Políticas"
+        bestPractices: "Mejores prácticas"
+        builderTalk: "Discusión"
+        edit: "Editar"
+        view: "Ver"      
+      creation:
+        name: "Nombre del proyecto"
+        description: "Descripción breve"
+        intro: "Introducción"
+        cancel: "Cancelar"
+        create: "Crear"
 
 ProjectLink = React.createClass
   getDefaultProps: ->
@@ -22,11 +64,11 @@ ProjectLink = React.createClass
       </div>
       <Link to="/lab/#{@props.project.id}" className="lab-index-project-row-icon-button">
         <i className="fa fa-pencil fa-fw"></i>{' '}
-        <small>Edit</small>
+        <small><Translate content="main.project.button.edit" /></small>
       </Link>
       <Link to="/projects/#{@props.project.slug}" className="lab-index-project-row-icon-button">
         <i className="fa fa-hand-o-right fa-fw"></i>{' '}
-        <small>View</small>
+        <small><Translate content="main.project.button.view" /></small>
       </Link>
     </div>
 
@@ -122,11 +164,11 @@ ProjectList = React.createClass
       </header>
 
       {if @state.loading
-        <small className="form-help">Loading...</small>
+        <small className="form-help"><Translate content="main.project.loading" /></small>
       else if @state.error?
         <p className="form-help error">{@state.error.toString()}</p>
       else if @state.projects.length is 0
-        <p className="form-help">No projects</p>
+        <p className="form-help"><Translate content="main.project.noProjects" /></p>
       else
         <ul className="lab-index-project-list">
           {@state.projects.map (project) =>
@@ -174,27 +216,27 @@ ProjectCreationForm = React.createClass
     <form onSubmit={@handleSubmit} style={maxWidth: '90vw', width: '60ch'}>
       <p>
         <label>
-          <span className="form-label">Project name</span><br />
+          <span className="form-label"><Translate content="main.project.creation.name" /></span><br />
           <input type="text" ref="displayNameInput" className="standard-input full" defaultValue="Untitled project (#{new Date().toLocaleString()})" required disabled={@state.busy} />
         </label>
       </p>
       <p>
         <label>
-          <span className="form-label">Short description</span><br />
-          <input type="text" ref="descriptionInput" className="standard-input full" defaultValue="A short description of the project" required disabled={@state.busy} />
+          <span className="form-label"><Translate content="main.project.creation.description" /></span><br />
+          <input type="text" ref="descriptionInput" className="standard-input full" defaultValue="Descripción breve del proyecto" required disabled={@state.busy} />
         </label>
       </p>
       <p>
         <label>
-          <span className="form-label">Introduction</span><br />
+          <span className="form-label"><Translate content="main.project.creation.intro" /></span><br />
           <textarea type="text" ref="introductionInput" className="standard-input full" defaultValue="A more in-depth introduction to your science..." rows="5" required disabled={@state.busy} />
         </label>
       </p>
       {if @state.error?
         <p className="form-help error">{@state.error.toString()}</p>}
       <p style={textAlign: 'center'}>
-        <button type="button" className="minor-button" disabled={@state.busy} onClick={@props.onCancel}>Cancel</button>{' '}
-        <button type="submit" className="major-button" disabled={@state.busy}>Create project</button>
+        <button type="button" className="minor-button" disabled={@state.busy} onClick={@props.onCancel}><Translate content="main.project.creation.cancel" /></button>{' '}
+        <button type="submit" className="major-button" disabled={@state.busy}><Translate content="main.project.creation.create" /></button>
       </p>
     </form>
 
@@ -232,7 +274,7 @@ module.exports = React.createClass
     if @props.user?
       <div>
         <ProjectList
-          title="Your projects"
+          title="Crear un proyecto"
           page={@props.location.query['owned-page']}
           roles={['owner', 'workaround']}
           withAvatars
@@ -240,11 +282,11 @@ module.exports = React.createClass
         />
         <div className="content-container">
           <p style={textAlign: 'center'}>
-            <button type="button" className="major-button" onClick={@showProjectCreator}>Create a new project</button>{' '}
-            <Link to="/lab-how-to" className="standard-button">How-to</Link>{' '}
-            <Link to="/lab-policies" className="standard-button">Policies</Link>{' '}
-            <Link to="/lab-best-practices/introduction" className="standard-button">Best Practices</Link>{' '}
-            <Link to="/talk/18" className="standard-button">Project Builder Talk</Link>
+            <button type="button" className="major-button" onClick={@showProjectCreator}><Translate content="main.project.button.create" /></button>{' '}
+            <Link to="/lab-how-to" className="standard-button"><Translate content="main.project.button.howTo" /></Link>{' '}
+            <Link to="/lab-policies" className="standard-button"><Translate content="main.project.button.policies" /></Link>{' '}
+            <Link to="/lab-best-practices/introduction" className="standard-button"><Translate content="main.project.button.bestPractices" /></Link>{' '}
+            <Link to="/talk/18" className="standard-button"><Translate content="main.project.button.builderTalk" /></Link>
           </p>
         </div>
         {if @state.creationInProgress
@@ -253,7 +295,7 @@ module.exports = React.createClass
           </ModalFormDialog>}
         <hr />
         <ProjectList
-          title="Collaborations"
+          title="Colaboraciones"
           page={@props.location.query['collabarations-page']}
           roles={['collaborator']}
           withOwners

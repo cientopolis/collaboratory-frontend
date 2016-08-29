@@ -1,10 +1,20 @@
 React = require 'react'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
 moment = require 'moment'
 apiClient = require 'panoptes-client/lib/api-client'
 talkClient = require 'panoptes-client/lib/talk-client'
 {Markdown} = require 'markdownz'
 Paginator = require '../../talk/lib/paginator'
 CommentLink = require './comment-link'
+
+counterpart.registerTranslations 'en',
+  body:
+    noComments: "No recent comments"
+
+counterpart.registerTranslations 'es',
+  body:
+    noComments: "No hay comentarios recientes"    
 
 module.exports = React.createClass
   displayName: 'UserProfileFeed'
@@ -40,7 +50,7 @@ module.exports = React.createClass
   render: ->
     <div className="content-container">
       {if @state.comments?.length is 0
-        <p className="form-help">No recent comments</p>
+        <p className="form-help"><Translate content="body.noComments" /></p>
       else if @state.comments?
         meta = @state.comments[0].getMeta()
         <div>

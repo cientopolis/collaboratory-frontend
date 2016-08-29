@@ -8,6 +8,56 @@ apiClient = require 'panoptes-client/lib/api-client'
 counterpart = require 'counterpart'
 ChangeListener = require '../../components/change-listener'
 Router = require 'react-router'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
+
+counterpart.registerTranslations 'en',
+  editProject:
+    sidebar:
+      project:
+        label: "Project"
+        details: "Project details"
+        research: "Research"
+        results: "Results"
+        faq: "FAQ"
+        education: "Education"
+        collaborators: "Collaborators"
+        media: "Media"
+        visibility: "Visibility"
+        talk: "Talk"
+        exports: "Data exports"
+      workflows: "Workflows"
+      subjectSets: "Subject sets"
+      help: 
+        need: "Need some help?"
+        readTutorial: "Read a tutorial"
+        askTalk: "Ask for help on talk"
+      other: "Other actions"
+      delete: "Delete this project"
+
+counterpart.registerTranslations 'es',
+  editProject:
+    sidebar:
+      project:
+        label: "Proyecto"
+        details: "Detalles del proyecto"
+        research: "Investigación"
+        results: "Resultados"
+        faq: "Preguntas frecuentes"
+        education: "Educación"
+        collaborators: "Colaboradores"
+        media: "Subir imágenes"
+        visibility: "Visibilidad"
+        talk: "Discusión"
+        exports: "Exportar contenido"
+      workflows: "Flujos de trabajo"
+      subjectSets: "Conjuntos de análisis"
+      help: 
+        need: "¿Necesita ayuda?"
+        readTutorial: "Leer un tutorial"
+        askTalk: "Solicitar ayuda"
+      other: "Otras acciones"
+      delete: "Borrar proyecto"
 
 DEFAULT_WORKFLOW_NAME = 'Untitled workflow'
 DEFAULT_SUBJECT_SET_NAME = 'Untitled subject set'
@@ -42,25 +92,25 @@ EditProjectPage = React.createClass
     <div className="columns-container content-container">
       <div>
         <ul className="nav-list">
-          <li><div className="nav-list-header">Project #{@props.project.id}</div></li>
+          <li><div className="nav-list-header"><Translate content="editProject.sidebar.project.label" /> #{@props.project.id}</div></li>
 
           <li><IndexLink to={@labPath()} activeClassName='active' className="nav-list-item" title="Input the basic information about your project, and set up its home page.">
-            Project details
+            <Translate content="editProject.sidebar.project.details" />
           </IndexLink></li>
           <li><Link to={@labPath('/research')} activeClassName='active' className="nav-list-item" title="Explain your research to your audience here in as much detail as you’d like.">
-            Research
+            <Translate content="editProject.sidebar.project.research" />
           </Link></li>
           <li><Link to={@labPath('/results')} activeClassName='active' className="nav-list-item" title="Once your project has hit its stride, share the results of your project with your volunteers here.">
-            Results
+            <Translate content="editProject.sidebar.project.results" />
           </Link></li>
           <li><Link to={@labPath('/faq')} activeClassName='active' className="nav-list-item" title="Add details here about your research, how to classify, and what you plan to do with the classifications.">
-            FAQ
+            <Translate content="editProject.sidebar.project.faq" />
           </Link></li>
           <li><Link to={@labPath('/education')} activeClassName='active' className="nav-list-item" title="If you are a researcher open to collaborating with educators, or if your project is primarily for educational purposes, you can describe that here.">
-            Education
+            <Translate content="editProject.sidebar.project.education" />
           </Link></li>
           <li><Link to={@labPath('/collaborators')} activeClassName='active' className="nav-list-item" title="Add people to your team and specify what their roles are so that they have the right access to the tools they need (including access to the project while it’s private).">
-            Collaborators
+            <Translate content="editProject.sidebar.project.collaborators" />
           </Link></li>
           {if 'field guide' in (@props.project.experimental_tools ? [])
             <li><Link to={@labPath('/guide')} activeClassName='active' className="nav-list-item" title="Create a persistent guide that can be viewed within your project">
@@ -75,21 +125,21 @@ EditProjectPage = React.createClass
               Mini-course
             </Link></li>}
           <li><Link to={@labPath('/media')} activeClassName='active' className="nav-list-item" title="Add any images you’d like to use in this project’s introduction, science case, results, FAQ, or education content pages.">
-            Media
+            <Translate content="editProject.sidebar.project.media" />
           </Link></li>
           <li><Link to={@labPath('/visibility')} activeClassName='active' className="nav-list-item" title="Decide whether your project is public and whether it's ready to go live.">
-            Visibility
+            <Translate content="editProject.sidebar.project.visibility" />
           </Link></li>
           <li><Link to={@labPath('/talk')} activeClassName='active' className="nav-list-item" title="Setup project specific discussion boards">
-            Talk
+            <Translate content="editProject.sidebar.project.talk" />
           </Link></li>
           <li><Link to={@labPath('/data-exports')} activeClassName='active' className="nav-list-item" title="Get your project's data exports">
-            Data Exports
+            <Translate content="editProject.sidebar.project.exports" />
           </Link></li>
 
           <li>
             <br />
-            <div className="nav-list-header">Workflows</div>
+            <div className="nav-list-header"><Translate content="editProject.sidebar.workflows" /></div>
             <PromiseRenderer promise={@props.project.get 'workflows'}>{(workflows) =>
               <ul className="nav-list">
                 {renderWorkflowListItem = (workflow) ->
@@ -114,7 +164,7 @@ EditProjectPage = React.createClass
 
           <li>
             <br />
-            <div className="nav-list-header">Subject sets</div>
+            <div className="nav-list-header"><Translate content="editProject.sidebar.subjectSets" /></div>
             <PromiseRenderer promise={@props.project.get 'subject_sets'}>{(subjectSets) =>
               <ul className="nav-list">
                 {renderSubjectSetListItem = (subjectSet) ->
@@ -140,21 +190,21 @@ EditProjectPage = React.createClass
 
           <li>
             <br />
-            <div className="nav-list-header">Need some help?</div>
+            <div className="nav-list-header"><Translate content="editProject.sidebar.help.need" /></div>
             <ul className="nav-list">
               <li>
-                <Link className="nav-list-item" to="/lab-how-to">Read a tutorial</Link>
+                <Link className="nav-list-item" to="/lab-how-to"><Translate content="editProject.sidebar.help.readTutorial" /></Link>
               </li>
               <li>
-                <Link to="/talk/18" className="nav-list-item">Ask for help on talk</Link>
+                <Link to="/talk/18" className="nav-list-item"><Translate content="editProject.sidebar.help.askTalk" /></Link>
               </li>
             </ul>
           </li>
         </ul>
 
         <br />
-        <div className="nav-list-header">Other actions</div>
-        <small><button type="button" className="minor-button" disabled={@state.deletionInProgress} onClick={@deleteProject}>Delete this project <LoadingIndicator off={not @state.deletionInProgress} /></button></small>{' '}
+        <div className="nav-list-header"><Translate content="editProject.sidebar.other" /></div>
+        <small><button type="button" className="minor-button" disabled={@state.deletionInProgress} onClick={@deleteProject}><Translate content="editProject.sidebar.delete" /> <LoadingIndicator off={not @state.deletionInProgress} /></button></small>{' '}
         {if @state.deletionError?
           <div className="form-help error">{@state.deletionError.message}</div>}
       </div>
