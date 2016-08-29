@@ -1,3 +1,5 @@
+/app/partials/zooniverse-logo.cjsx
+/app/partials/zooniverse-logotype.cjsx
 /build
 /node_modules
 /public/font-awesome

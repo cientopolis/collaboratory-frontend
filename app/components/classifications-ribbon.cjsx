@@ -1,4 +1,14 @@
 React = require 'react'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
+
+counterpart.registerTranslations 'en',
+  body:
+    empty: "No classifications yet"
+
+counterpart.registerTranslations 'es',
+  body:
+    empty: "Sin clasificaciones"  
 
 ClassificationsRibbon = React.createClass
   displayName: 'ClassificationsRibbon'
@@ -26,8 +36,11 @@ ClassificationsRibbon = React.createClass
         width: @props.width
         height: @props.height
       }>
+        
         <span className="empty">No classifications yet</span>
+        
       </span>
+
 
     else
       totalClassifications = 0
