@@ -85,7 +85,6 @@ module.exports = React.createClass
   links: ->
     <nav className="main-nav #{@mobileClass()}">
       <Link to={"/projects"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.projects" /></Link>
-      <Link to={"/notifications"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.notifications" /></Link>
       <Link to={"/collections"} className="main-nav-item" activeClassName="active"><Translate content="mainNav.collect" /></Link>
       <hr />
       <Link to={"/lab"} activeClassName="active" className="main-nav-item nav-build"><Translate className="minor" content="mainNav.lab" /></Link>

@@ -267,20 +267,25 @@ counterpart.registerTranslations 'en',
 counterpart.registerTranslations 'es',
   howToPage:
     content: '''
-      # How to Build a Project
+      # Cómo crear un proyecto
 
-      **So you want to build a project using the Zooniverse Project Builder?**
-      This tutorial will help walk you through the process, using Kitteh Zoo as an example.
-      You can [explore the actual project](https://www.zooniverse.org/projects/vrooje/kitteh-zoo).
+      Este tutorial te ayudará durante el proceso de creación, utilizando el proyecto "Recorriendo La Plata"
+      como ejemplo.
+      Podés explorar el [proyecto real] (http://ec2-52-196-4-55.ap-northeast-1.compute.amazonaws.com/projects/investigador/recorriendo-la-plata).
 
       [![Kitteh Zoo screenshot](./assets/how-to-lab/how-to-1.jpg)](./assets/how-to-lab/how-to-1.jpg)
 
-      ### Getting Started
+      ### Empezando
 
-      To get started building, go to [the Project Builder home page](/lab) and log in to your Zooniverse account, then click the "Build a Project" button in the top right. Here you can see all of the projects you own and collaborate on. Click on "Create a project" to start building.
+      Lo primero que hay que hacer es ir a la [página de creación de proyectos](/lab) e ingresar con tu cuenta
+      en Cientópolis. Aquí también se pueden ver todos los proyectos que vayas a crear, como así también los
+      proyectos en los que colabores. Para crear un proyecto, clickear en el botón "Crear un proyecto".
 
       [![Project Builder screenshot](./assets/how-to-lab/how-to-2.jpg)](./assets/how-to-lab/how-to-2.jpg)
 
+
+      **Empezar con la creación:** Ahora ya estás en la página de creación misma. Sobre el sector izquierdo
+      están los menúes principales: 
       **Start building:** Now you're in the Project Builder itself. This is where the magic happens. On the left-hand side, you've got your main menus: Project, Workflow, and Subjects. These are terms you'll see a lot, and they have specific meanings in the Zooniverse.  Project is pretty self-explanatory; Galaxy Zoo, Penguin Watch, and of course, Kitteh Zoo, are all examples of Zooniverse projects that you could build using the project builder. A workflow is the sequence of tasks that you ask volunteers to do, and subjects are the things (usually images) that volunteers do those tasks on.
 
       [![Project details editor screenshot](./assets/how-to-lab/how-to-3.jpg)](./assets/how-to-lab/how-to-3.jpg)
