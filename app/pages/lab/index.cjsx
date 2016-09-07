@@ -229,7 +229,7 @@ ProjectCreationForm = React.createClass
       <p>
         <label>
           <span className="form-label"><Translate content="main.project.creation.intro" /></span><br />
-          <textarea type="text" ref="introductionInput" className="standard-input full" defaultValue="A more in-depth introduction to your science..." rows="5" required disabled={@state.busy} />
+          <textarea type="text" ref="introductionInput" className="standard-input full" defaultValue=Introducción en profundidad sobre tu investigación" rows="5" required disabled={@state.busy} />
         </label>
       </p>
       {if @state.error?

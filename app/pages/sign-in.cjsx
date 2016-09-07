@@ -6,7 +6,7 @@ Translate = require 'react-translate-component'
 
 counterpart.registerTranslations 'en',
   signIn:
-    withZooniverse: 'Sign in with your Zooniverse account'
+    withZooniverse: 'Sign in with your Cientópolis account'
     whyHaveAccount: 'Signed-in volunteers can keep track of their work and will be credited in any resulting publications.'
     signIn: 'Sign in'
     register: 'Register'
@@ -14,6 +14,17 @@ counterpart.registerTranslations 'en',
     withFacebook: 'Sign in with Facebook'
     withTwitter: 'Sign in with Twitter'
     withGoogle: 'Sign in with Google'
+
+counterpart.registerTranslations 'es',
+  signIn:
+    withZooniverse: 'Ingresar con tu cuenta en Cientópolis'
+    whyHaveAccount: 'Usuarios registrados pueden estar al tanto del trabajo y las colaboraciones que realizaron, y se les dará crédito en publicaciones resultantes de la investigación'
+    signIn: 'Ingresar'
+    register: 'Registrarse'
+    orThirdParty: 'O también puedes ingresar con otro servicio'
+    withFacebook: 'Ingresar con Facebook'
+    withTwitter: 'Ingresar con Twitter'
+    withGoogle: 'Ingresar con Google'    
 
 module.exports = React.createClass
   displayName: 'SignInPage'

@@ -19,7 +19,7 @@ counterpart.registerTranslations 'en',
 
 counterpart.registerTranslations 'es',
   collectionsPage:
-    title: 'Colecciones de %(user) '
+    title: 'Colecciones de %(user)s '
     countMessage: 'Mostrando %(count)s encontradas'
     button: 'Ver colección'
     loadMessage: 'Cargando colecciones'
