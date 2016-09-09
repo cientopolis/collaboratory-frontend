@@ -285,51 +285,50 @@ counterpart.registerTranslations 'es',
 
 
       **Empezar con la creación:** Ahora ya estás en la página de creación misma. Sobre el sector izquierdo
-      están los menúes principales: 
-      **Start building:** Now you're in the Project Builder itself. This is where the magic happens. On the left-hand side, you've got your main menus: Project, Workflow, and Subjects. These are terms you'll see a lot, and they have specific meanings in the Zooniverse.  Project is pretty self-explanatory; Galaxy Zoo, Penguin Watch, and of course, Kitteh Zoo, are all examples of Zooniverse projects that you could build using the project builder. A workflow is the sequence of tasks that you ask volunteers to do, and subjects are the things (usually images) that volunteers do those tasks on.
+      están los menúes principales: **Proyecto**, **Flujos de Trabajo** y **Conjuntos de análisis**.
+      Esta es terminología que vas a ver a menudo, y tienen significados específicos en el contexto de esta plataforma. **Proyecto** es bastante claro; Recorriendo La Plata sería un proyecto, y representa al proyecto de investigación del mundo real con el cual estás colaborando. Un **flujo de trabajo** representa el conjunto de tareas que los voluntarios del proyecto tiene que realizar, usualmente en forma de preguntas. Un **conjunto de análisis** es un conjunto de cosas (usualmente son imágenes) sobre las que los voluntarios realizan las tareas mencionadas anteriormente.
 
       [![Project details editor screenshot](./assets/how-to-lab/how-to-3.jpg)](./assets/how-to-lab/how-to-3.jpg)
 
-      ### Define your project.
 
-      The first thing you'll want to do is fill in some basic information about your project on the Project Details page. Just click and type in the relevant boxes. We've added a short description that will be formatted using the markdown language. The avatar and background image for Kitteh Zoo are in this folder. Download these images to your computer. Now add these images by dragging and dropping or by clicking on the relevant boxes (like in the image above). You can come back and add more details at any time while building your project.
+      ### Definiendo tu proyecto
 
-      ### Building a workflow
+      Lo primero que vas a necesitar hacer es completar información básica sobre tu proyecto en la pestaña de **Detalles del proyecto**. Algunas de ellas son el nombre del proyecto, una descripción, una introducción, e imágenes para el logo y fondo.
 
-      This is where you build the tasks that volunteers actually do. When you first get to this page, you'll see there is a sample task (specifically a question) already in place.
+      ### Creando un flujo de trabajo
+
+      Aquí es donde se definen las tareas que van a realizar los voluntarios. La primera vez que visites esta página, verás que ya hay una pregunta de ejemplo ya configurada.
 
       [![Project workflow editor screenshot](./assets/how-to-lab/how-to-4.jpg)](./assets/how-to-lab/how-to-4.jpg)
 
-      We want to create this:
+      Queremos crear lo siguiente:
 
       [![Project workflow example](./assets/how-to-lab/how-to-5.jpg)](./assets/how-to-lab/how-to-5.jpg)
 
-      We'll start by replacing the sample text with our question, which asks people how many cats are in the image. We add more answers using the "+" button under the "Yes" answer. Use the screenshot below to fill in the workflow details (you may need to zoom in!)
+      Empezamos reemplazando el texto de ejemplo con nuestra pregunta, que en nuestro caso pregunta a los voluntarios si pueden identificar un edificio representativo de La Plata. Podemos agregar más preguntas con el botón "+" debajo de la respuesta "Sí" que viene por defecto. Utilizá la captura de pantalla de abajo a modo de guía.
 
       [![Project workflow editing screenshot](./assets/how-to-lab/how-to-6.jpg)](./assets/how-to-lab/how-to-6.jpg)
 
-      We added both text and images into the _Help Text_ box using the markdown language ([learn more about markdown](http://markdownlivepreview.com)).
+      Agregamos tanto texto como imágenes en el recuadro de _Texto de Ayuda_ utilizando el lenguaje _Markdown_ ([más información sobre markdown](http://markdownlivepreview.com))
 
-      Here is the markdown for the help text:
+      Esta es la representación del texto de ayuda con markdown:
 
-          Tell us **how many cats** you see. You should include:
+          Decinos solamente si ves un edificio representativo de La Plata. Esta pregunta puede resultar subjetiva en algunos casos (un edificio será representativo para algunos, y otros quizás nunca lo hayan visto), pero no te preocupes, ya que muchas personas verán las mismas imágenes.
 
-            - Actual cats (not drawn or simulated)
-            - Cats of any species
+          Algunos ejemplos que pueden resultar obvios serían la Catedral, el Teatro Argentino, la Municipalidad. 
 
-          We will ask many people the same question about this image, so don't worry if you aren't absolutely sure. *Just give us your best guess.*
+          ![Catedral]()
+          ![Teatro Argentino]()
+          ![Municipalidad]()
 
-          Here are some examples of cats:
 
-          ![Sink Cats Relax](http://zooniverse-resources.s3.amazonaws.com/bigblogfiles/cat_demo/cat_bloonet.jpg)
-          ![Only 1 of these cats counts.](http://zooniverse-resources.s3.amazonaws.com/bigblogfiles/cat_demo/cat_valentina_a.jpg)
-          ![Wet kitteh iz not amused](http://zooniverse-resources.s3.amazonaws.com/bigblogfiles/cat_demo/cat_joeltelling.jpg)
+          Tené en cuenta que la pregunta **NO** es si reconocés ese sector particular de La Plata (por ejemplo: "Sí, eso es a dos cuadras de mi casa, al lado del supermercado"), sino si el edificio te parece que es _representativo_
 
-          And here are some examples of not-cats (you can ignore these):
 
-          ![A sample of things that are not cats.](http://zooniverse-resources.s3.amazonaws.com/bigblogfiles/cat_demo/notcats.png)
+      Se pueden agregar tareas subsecuentes dependiendo de la respuesta a la pregunta. Por ejemplo, si responde que sí, entonces podemos agregar un recuadro donde el voluntario pueda escribir el edificio que reconoce; y si elije que no, entonces termina la tarea (opción "Fin de la clasificación"). Una vez que creemos todas las tareas, las podemos vincular creando un flujo dependiendo de las respuestas que se vayan dando. También, en la sección de "Elección", se puede configurar si se permite selección múltiple (seleccionar más de una opción, aunque en este caso de ejemplo no tendría sentido), y si la pregunta es requerida (no se puede pasar a analizar otra imagen, o a la siguiente pregunta, si no se responde algo)
 
-      We can set subsequent tasks to depend on the answer to this question. Right now we haven't made any other tasks, so the only option is "End of Classification." Once we create more tasks, we'll go back through and link them. Note that this question is _required_ (people can't move on until they've answered it) and only one answer is allowed.
+
+      Ahora queremos dibujar un recuadro alrededor del edificio que encontramos. ¿Por qué? Porque sí, porque podemos. (En realidad, es a modo de ejemplo)
 
       Now we want to draw circles around the cat's faces and mark a point on their tails. Why? Because we can. (For your own project you'd obviously want to think carefully about the reasons for adding tasks to a workflow, and what you want to get from the answers/marks.)
 

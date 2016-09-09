@@ -27,6 +27,8 @@ counterpart.registerTranslations 'en',
         talk: "Talk"
         exports: "Data exports"
       workflows: "Workflows"
+      newWorkflow: "New workflow"
+      newSS: "New subject set"
       subjectSets: "Subject sets"
       help: 
         need: "Need some help?"
@@ -51,6 +53,8 @@ counterpart.registerTranslations 'es',
         talk: "Discusión"
         exports: "Exportar contenido"
       workflows: "Flujos de trabajo"
+      newWorkflow: "Nuevo flujo de trabajo"
+      newSS: "Nuevo conjunto de análisis"      
       subjectSets: "Conjuntos de análisis"
       help: 
         need: "¿Necesita ayuda?"
@@ -152,7 +156,7 @@ EditProjectPage = React.createClass
 
                 <li className="nav-list-item">
                   <button type="button" onClick={@createNewWorkflow} disabled={@props.project.live or @state.workflowCreationInProgress} title="A workflow is the sequence of tasks that you’re asking volunteers to perform.">
-                    New workflow{' '}
+                    <Translate content="editProject.sidebar.newWorkflow" />{' '}
                     <LoadingIndicator off={not @state.workflowCreationInProgress} />
                   </button>{' '}
                   {if @state.workflowCreationError?
@@ -178,7 +182,7 @@ EditProjectPage = React.createClass
 
                 <li className="nav-list-item">
                   <button type="button" onClick={@createNewSubjectSet} disabled={@state.subjectSetCreationInProgress} title="A subject is an image (or group of images) to be analyzed.">
-                    New subject set{' '}
+                    <Translate content="editProject.sidebar.newSS" />{' '}
                     <LoadingIndicator off={not @state.subjectSetCreationInProgress} />
                   </button>{' '}
                   {if @state.subjectSetCreationError?

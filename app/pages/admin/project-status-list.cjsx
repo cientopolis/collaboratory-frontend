@@ -1,9 +1,19 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 PromiseRenderer = require '../../components/promise-renderer'
 apiClient = require 'panoptes-client/lib/api-client'
 Paginator = require '../../talk/lib/paginator'
 ProjectIcon = require '../../components/project-icon'
 {History, Link} = require 'react-router'
+
+counterpart.registerTranslations 'en',
+  projectStatus:
+    launchApproved: 'Launch Approved'
+    launchRequested: 'Launch Requested'
+    betaApproved: 'Beta Approved'
+    betaRequested: 'Beta Requested'
+  notFound: 'No projects found for this filter'
 
 module.exports = React.createClass
   displayName: "ProjectStatusPage"
@@ -28,16 +38,16 @@ module.exports = React.createClass
     <div className="project-status-page">
       <nav className="project-status-filters">
         <Link to="/admin/project_status">All</Link>
-        <Link to="/admin/project_status?filterBy=launch_approved">Launch Approved</Link>
-        <Link to="/admin/project_status?filterBy=launch_requested">Launch Requested</Link>
-        <Link to="/admin/project_status?filterBy=beta_approved">Beta Approved</Link>
-        <Link to="/admin/project_status?filterBy=beta_requested">Beta Requested</Link>
+        <Link to="/admin/project_status?filterBy=launch_approved"><Translate content="projectStatus.launchApproved" /></Link>
+        <Link to="/admin/project_status?filterBy=launch_requested"><Translate content="projectStatus.launchRequested" /></Link>
+        <Link to="/admin/project_status?filterBy=beta_approved"><Translate content="projectStatus.betaApproved" /></Link>
+        <Link to="/admin/project_status?filterBy=beta_requested"><Translate content="projectStatus.betaRequested" /></Link>
       </nav>
 
       <PromiseRenderer promise={@getProjects()}>{(projects) =>
         projectsMeta = projects[0]?.getMeta()
         if projects.length is 0
-          <div className="project-status-list">No projects found for this filter</div>
+          <div className="project-status-list"><Translate content="notFound" /></div>
          else
            <div>
              <div className="project-status-list">

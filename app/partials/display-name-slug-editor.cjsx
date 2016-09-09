@@ -1,7 +1,25 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 AutoSave = require '../components/auto-save'
 PromiseRenderer = require '../components/promise-renderer'
 handleInputChange = require '../lib/handle-input-change'
+
+counterpart.registerTranslations 'en',
+  resource:
+    name: 'Name'
+    warn:
+      changing: 'You’re changing the url of your '
+      noLongerWork: '. Users with bookmarks and links in talk will no longer work. '
+      undo: 'Undo'
+
+counterpart.registerTranslations 'es',
+  resource:
+    name: 'Nombre'
+    warn:
+      changing: 'You’re changing the url of your '
+      noLongerWork: '. Users with bookmarks and links in talk will no longer work. '
+      undo: 'Undo'      
 
 module.exports = React.createClass
   displayName: "DisplayNameSlugEditor"
@@ -29,13 +47,13 @@ module.exports = React.createClass
   render: ->
     <p>
       <AutoSave resource={@props.resource}>
-        <span className="form-label">Name</span>
+        <span className="form-label"><Translate content="resource.name" /></span>
         <br />
         <input type="text" className="standard-input full" name="display_name" value={@props.resource.display_name} onChange={handleInputChange.bind @props.resource} disabled={@props.disabled or @props.resource.live}/>
       </AutoSave>
 
       {if @warnURLChange()
-        <small className="form-help">You’re changing the url of your {@props.resourceType}. Users with bookmarks and links in talk will no longer work. <button type="button" onClick={@undoNameChange}>Undo</button></small>
+        <small className="form-help"><Translate content="resource.warn.changing" />{@props.resourceType}<Translate content="resource.warn.noLongerWork" /><button type="button" onClick={@undoNameChange}><Translate content="resource.warn.undo" /></button></small>
       }
 
       <PromiseRenderer promise={@resourceURL()} pending={null}>{(url) =>
@@ -43,8 +61,7 @@ module.exports = React.createClass
           {if @props.resource.live
             "You cannot change a live #{@props.resourceType}'s name."
           else
-            "The #{@props.resourceType} name is the first thing people will see about the #{@props.resourceType}, and it will show up in the #{@props.resourceType} URL. Try to keep it short and sweet."}
-           Your {@props.resourceType}’s URL is <a href={document.baseURI.slice(0, -1) + url}>{url}</a>
+            "El nombre del #{@props.resourceType} es lo primero que los usuarios van a ver sobre el #{@props.resourceType}, y aparecerá en la URL del mismo. Lo mejor es que sea breve y conciso."}
         </small>
       }</PromiseRenderer>
     </p>

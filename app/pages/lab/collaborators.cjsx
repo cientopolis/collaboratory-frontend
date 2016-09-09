@@ -1,10 +1,74 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 ReactDOM = require 'react-dom'
 PromiseRenderer = require '../../components/promise-renderer'
 UserSearch = require '../../components/user-search'
 apiClient = require 'panoptes-client/lib/api-client'
 talkClient = require 'panoptes-client/lib/talk-client'
 projectSection = require '../../talk/lib/project-section'
+
+counterpart.registerTranslations 'en',
+  projectOwner:
+    label: 'Project Owner'
+    self: 'You are the project owner'
+    another: ' is the project owner'
+  collaborators:
+    none: 'None yet'
+  error: 'Your account status on this project is still being setup. Please try again later.'
+  addUserRole:
+    label: 'Add another'
+    button: 'Add user role'
+  roles:
+    collab:
+      label: 'Collaborator'
+      description: 'Collaborators have full access to edit workflows and project content, including deleting some or all of the project.'
+    expert:
+      label: 'Expert'
+      description: 'Experts can enter "gold mode" to make authoritative gold standard classifications that will be used to validate data quality.'
+    scientist:
+      label: 'Researcher'
+      description: 'Members of the research team will be marked as researchers on "Talk"'
+    moderator:
+      label: 'Moderator'
+      description: 'Moderators have extra privileges in the community discussion area to moderate discussions. They will also be marked as moderators on "Talk".'
+    tester:
+      label: 'Tester'
+      description: 'Testers can view and classify on your project to give feedback while it’s still private. They cannot access the project builder.'
+    translator:
+      label: 'Translator'
+      description: 'Translators will have access to the translation site.'
+
+counterpart.registerTranslations 'es',
+  projectOwner:
+    label: 'Dueño del proyecto'
+    self: 'Sos el dueño del proyecto'
+    another: ' es el dueño del proyecto'
+  collaborators:
+    none: 'Ninguno aún'
+  error: 'El estado de tu cuenta en este proyecto todavía está siendo definido. Por favor, intentá de nuevo más tarde.'
+  addUserRole:
+    label: 'Agregar otro'
+    button: 'Agregar rol'
+  roles:
+    collab:
+      label: 'Colaborador'
+      description: 'Los colaboradores tienen acceso total para editar los flujos de trabajo y el contenido del proyecto, incluyendo poder borrar algunas cosas o el proyecto en sí.'
+    expert:
+      label: 'Experto'
+      description: 'Los expertos pueden entrar en el modo "estándar oro", en el cual pueden realizar clasificaciones autoritativas que sirven para validar la calidad de los datos ingresados por los voluntarios.'
+    scientist:
+      label: 'Investigador'
+      description: 'Los miembros del grupo de investigación serán marcados como tal en los foros de discusión'
+    moderator:
+      label: 'Moderador'
+      description: 'Los moderadores tienen privilegios extra en los foros de discusión de la comunidad, y son los que moderan estas discusiones. Serán marcados como tal en los foros de discusión.'
+    tester:
+      label: 'Tester'
+      description: 'Un tester puede ver y realizar clasificaciones en el proyecto para brindar retroalimentación cuando el proyecto todavía es privado. Un tester no puede acceder a la sección de creación del proyecto'
+    translator:
+      label: 'Traductor'
+      description: 'Los traductores tienen acceso al sitio de traducción.'
 
 ID_PREFIX = 'LAB_COLLABORATORS_PAGE_'
 
@@ -18,23 +82,23 @@ POSSIBLE_ROLES = {
 
 ROLES_INFO =
   collaborator:
-    label: 'Collaborator'
-    description: 'Collaborators have full access to edit workflows and project content, including deleting some or all of the project.'
+    label: <Translate content="roles.collab.label" />
+    description: <Translate content="roles.collab.description" />
   expert:
-    label: 'Expert'
-    description: 'Experts can enter "gold mode" to make authoritative gold standard classifications that will be used to validate data quality.'
+    label: <Translate content="roles.expert.label" />
+    description: <Translate content="roles.expert.description" />
   scientist:
-    label: 'Researcher'
-    description: 'Members of the research team will be marked as researchers on "Talk"'
+    label: <Translate content="roles.scientist.label" />
+    description: <Translate content="roles.scientist.description" />
   moderator:
-    label: 'Moderator'
-    description: 'Moderators have extra privileges in the community discussion area to moderate discussions. They will also be marked as moderators on "Talk".'
+    label: <Translate content="roles.moderator.label" />
+    description: <Translate content="roles.moderator.description" />
   tester:
-    label: 'Tester'
-    description: 'Testers can view and classify on your project to give feedback while it’s still private. They cannot access the project builder.'
+    label: <Translate content="roles.tester.label" />
+    description: <Translate content="roles.tester.description" />
   translator:
-    label: 'Translator'
-    description: 'Translators will have access to the translation site.'
+    label: <Translate content="roles.translator.label" />
+    description: <Translate content="roles.translator.description" />
 
 CollaboratorCreator = React.createClass
   displayName: 'CollaboratorCreator'
@@ -71,7 +135,7 @@ CollaboratorCreator = React.createClass
         </table>
 
         <p>
-          <button type="submit" className="major-button" onClick={@handleSubmit}>Add user role</button>
+          <button type="submit" className="major-button" onClick={@handleSubmit}><Translate content="addUserRole.button" /></button>
         </p>
       </form>
     </div>
@@ -122,7 +186,7 @@ CollaboratorCreator = React.createClass
 
       .catch (error) =>
         if error.message.match /not allowed to create this role/i
-          error.message = 'Your account status on this project is still being setup. Please try again later.'
+          error.message = <Translate content="error" />
 
         @setState {error}
 
@@ -148,12 +212,12 @@ module.exports = React.createClass
 
   render: ->
     <div>
-      <div className="form-label">Project Owner</div>
+      <div className="form-label"><Translate content="projectOwner.label" /></div>
       <PromiseRenderer promise={@props.project.get('owner')} then={(projectOwner) =>
         projectOwnerMessage = if @props.user.id is projectOwner.id
-          'You are the project owner.'
+          <Translate content="projectOwner.self" />
         else
-          projectOwner.display_name + ' is the project owner.'
+          projectOwner.display_name + <Translate content="projectOwner.another" />
 
         <p>
           {projectOwnerMessage}
@@ -175,13 +239,13 @@ module.exports = React.createClass
             for projectRoleSet in projectRoleSets when 'owner' not in projectRoleSet.roles
               <PromiseRenderer key={projectRoleSet.id} promise={projectRoleSet.get 'owner'} then={@renderUserRow.bind this, projectRoleSet} />
           else
-            <em className="form-help">None yet</em>}
+            <em className="form-help"><Translate content="collaborators.none" /></em>}
         </div>
       } />
 
       <hr />
 
-      <div className="form-label">Add another</div>
+      <div className="form-label"><Translate content="addUserRole.label" /></div>
       <CollaboratorCreator project={@props.project} onAdd={@handleCollaboratorAddition} />
     </div>
 
