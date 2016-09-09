@@ -1,4 +1,6 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 AutoSave = require '../../components/auto-save'
 handleInputChange = require '../../lib/handle-input-change'
 PromiseRenderer = require '../../components/promise-renderer'
@@ -12,6 +14,39 @@ SubjectUploader = require '../../partials/subject-uploader'
 UploadDropTarget = require '../../components/upload-drop-target'
 ManifestView = require '../../components/manifest-view'
 isAdmin = require '../../lib/is-admin'
+
+counterpart.registerTranslations 'en',
+  help:
+    p1: '''A subject is a unit of data to be analyzed. A subject can include one or more images that will be analyzed at the same time by volunteers. A subject set consists of a list of subjects (the “manifest”) defining their properties, and the images themselves.'''
+    p2: '''Feel free to group subjects into sets in the way that is most useful for your research. Many projects will find it’s best to just have all their subjects in 1 set, but not all.'''
+    p3: '''We strongly recommend uploading subjects in batches of 500 - 1,000 at a time.'''
+  limitMessage:
+    l1: 'The project has '
+    l2: ' uploaded subjects. '
+    l3: 'You have uploaded '
+    l4: ' subjects from an allowance of '
+    l5: '. Your uploaded subject count is the tally of all subjects (including those deleted) that your account has uploaded through the project builder or Zooniverse api.'
+  ss:
+    name: 'Name'
+    note: 'A subject set’s name is only seen by the research team.'
+    contains:
+      l1: 'This set contains '
+      l2: ' subjects: '
+  uploadZone:
+    drag: ''
+    note: ''
+
+counterpart.registerTranslations 'es',
+  help:
+    p1: '''A subject is a unit of data to be analyzed. A subject can include one or more images that will be analyzed at the same time by volunteers. A subject set consists of a list of subjects (the “manifest”) defining their properties, and the images themselves.'''
+    p2: '''Feel free to group subjects into sets in the way that is most useful for your research. Many projects will find it’s best to just have all their subjects in 1 set, but not all.'''
+    p3: '''We strongly recommend uploading subjects in batches of 500 - 1,000 at a time.'''
+  limitMessage:
+    l1: 'The project has '
+    l2: ' uploaded subjects. '
+    l3: 'You have uploaded '
+    l4: ' subjects from an allowance of '
+    l5: '. Your uploaded subject count is the tally of all subjects (including those deleted) that your account has uploaded through the project builder or Zooniverse api.'
 
 NOOP = Function.prototype
 
@@ -136,25 +171,27 @@ EditSubjectSetPage = React.createClass
   render: ->
     <div>
       <h3>{@props.subjectSet.display_name} #{@props.subjectSet.id}</h3>
-      <p className="form-help">A subject is a unit of data to be analyzed. A subject can include one or more images that will be analyzed at the same time by volunteers. A subject set consists of a list of subjects (the “manifest”) defining their properties, and the images themselves.</p>
-      <p className="form-help">Feel free to group subjects into sets in the way that is most useful for your research. Many projects will find it’s best to just have all their subjects in 1 set, but not all.</p>
-      <p className="form-help">{@subjectLimitMessage(@props.project.subjects_count, @props.user)} </p>
-      <p className="form-help"><strong>We strongly recommend uploading subjects in batches of 500 - 1,000 at a time.</strong></p>
+      <p className="form-help"><Translate content="help.p1" /></p>
+      <p className="form-help"><Translate content="help.p2" />.</p>
+      <p className="form-help">
+      <Translate content="limitMessage.l1" /> {@props.project.subjects_count} <Translate content="limitMessage.l2" /> +  <Translate content="limitMessage.l3" /> {@props.user.uploaded_subjects_count} <Translate content="limitMessage.l4"/> {@props.user.max_subjects} <Translate content="limitMessage.l5" />
+      </p>
+      <p className="form-help"><strong><Translate content="help.p3" /></strong></p>
 
       <form onSubmit={@handleSubmit}>
         <p>
           <AutoSave resource={@props.subjectSet}>
-            <span className="form-label">Name</span>
+            <span className="form-label"><Translate content="ss.name" /></span>
             <br />
-            <input type="text" name="display_name" placeholder="Subject Set Name" value={@props.subjectSet.display_name} className="standard-input full" onChange={handleInputChange.bind @props.subjectSet} />
+            <input type="text" name="display_name" placeholder="Nombre del conjunto" value={@props.subjectSet.display_name} className="standard-input full" onChange={handleInputChange.bind @props.subjectSet} />
           </AutoSave>
-          <small className="form-help">A subject set’s name is only seen by the research team.</small>
+          <small className="form-help"><Translate content="ss.note" /></small>
         </p>
       </form>
 
       <hr />
 
-      This set contains {@props.subjectSet.set_member_subjects_count} subjects:<br />
+      <Translate content="ss.contains.l1" /> {@props.subjectSet.set_member_subjects_count} <Translate content="ss.contains.l2" /><br />
       <SubjectSetListing subjectSet={@props.subjectSet} />
 
       <hr />

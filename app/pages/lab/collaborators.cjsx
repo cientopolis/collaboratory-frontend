@@ -56,7 +56,7 @@ counterpart.registerTranslations 'es',
       description: 'Los colaboradores tienen acceso total para editar los flujos de trabajo y el contenido del proyecto, incluyendo poder borrar algunas cosas o el proyecto en sí.'
     expert:
       label: 'Experto'
-      description: 'Los expertos pueden entrar en el modo "estándar de oro", en el cual pueden realizar clasificaciones autoritativas que sirven para validar la calidad de los datos ingresados por los voluntarios.'
+      description: 'Los expertos pueden entrar en el modo "estándar oro", en el cual pueden realizar clasificaciones autoritativas que sirven para validar la calidad de los datos ingresados por los voluntarios.'
     scientist:
       label: 'Investigador'
       description: 'Los miembros del grupo de investigación serán marcados como tal en los foros de discusión'

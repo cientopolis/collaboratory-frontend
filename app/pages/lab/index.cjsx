@@ -217,7 +217,7 @@ ProjectCreationForm = React.createClass
       <p>
         <label>
           <span className="form-label"><Translate content="main.project.creation.name" /></span><br />
-          <input type="text" ref="displayNameInput" className="standard-input full" defaultValue="Untitled project (#{new Date().toLocaleString()})" required disabled={@state.busy} />
+          <input type="text" ref="displayNameInput" className="standard-input full" defaultValue="Proyecto sin título (#{new Date().toLocaleString()})" required disabled={@state.busy} />
         </label>
       </p>
       <p>

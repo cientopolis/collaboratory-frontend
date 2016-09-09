@@ -15,11 +15,13 @@ Translate = require 'react-translate-component'
 
 
 counterpart.registerTranslations 'en',
+  project: 'project'
   headerText: 'Input the basic information about your project, and set up its home page.'
   avatar:
     overText: 'Drop an avatar image here'
     description: '''Pick a logo to represent your project. To add an image, either drag and drop or click to open your file viewer. For best results, use a square image of not more than 50 KB.'''
   background:
+    label: 'Background image'
     overText: 'Drop a background image here'
     description: '''This image will be the background for all of your project pages, including your project’s front page. To add an image, either drag and drop or left click to open your file viewer. For best results, use good quality images no more than 256 KB.'''
   chooseWF:
@@ -43,36 +45,44 @@ counterpart.registerTranslations 'en',
   externals:
     label: 'External links'
     help: '''Adding an external link will make it appear as a new tab alongside the science, classify, and talk tabs.'''
+    URLLabel: 'Label'
+    URL: 'URL'
+    addLabel: 'Add link'
 
 counterpart.registerTranslations 'es',
-  headerText: 'Input the basic information about your project, and set up its home page.'
+  project: 'proyecto'
+  headerText: 'Ingresá la información básica de tu proyecto, y configurá la página principal del mismo.'
   avatar:
-    overText: 'Drop an avatar image here'
-    description: '''Pick a logo to represent your project. To add an image, either drag and drop or click to open your file viewer. For best results, use a square image of not more than 50 KB.'''
+    overText: 'Arrastrá y soltá una imagen de logo aquí'
+    description: '''Elegí un logo que represente a tu proyecto. Para esto, arrastrá y soltá una imágen o hacé click en el recuadro. Para obtener mejores resultados, es recomendable utilizar una imagen cuadrada de no más de 50KB.'''
   background:
-    overText: 'Drop a background image here'
-    description: '''This image will be the background for all of your project pages, including your project’s front page. To add an image, either drag and drop or left click to open your file viewer. For best results, use good quality images no more than 256 KB.'''
+    label: 'Imágen de fondo'
+    overText: 'Arrastrá y soltá una imagen de fondo aquí'
+    description: '''Esta será la imagen de fondo en todas las páginas del proyecto, incluyendo la página principal. Arastrá y soltá una imágen o hacé click en el recuadro. Para obtener mejores resultados, es recomendable utilizar una imagen con buena calidad de no más de 256KB.'''
   chooseWF:
-    checkBox: 'Volunteers can choose which workflow they work on'
-    description: '''If you have multiple workflows, check this to let volunteers select which workflow they want to to work on; otherwise, they’ll be served randomly.'''
+    checkBox: 'Los voluntarios pueden elegir el flujo de trabajo en el cual trabajar.'
+    description: '''Si definiste múltiples flujos de trabajo, tildá esta opción para permitir que los voluntarios elijan el flujo de trabajo que deseen utilizar; de otro modo, serán asignados aleatoriamente.'''
   description:
-    label: 'Description'
-    help: '''This should be a one-line call to action for your project that displays on your landing page. Some volunteers will decide whether to try your project based on reading this, so try to write short text that will make people actively want to join your project.'''
+    label: 'Descripción'
+    help: '''Esta sería la frase bien concisa que atrape a tus potenciales voluntarios, y que se muestra en la página principal del proyecto. Así, algunos voluntarios decidirán si participar o no, basado en este texto. '''
   introduction:
-    label: 'Introduction'
-    help: '''Add a brief introduction to get people interested in your project. This will display on your landing page.'''
+    label: 'Introducción'
+    help: '''Agregá una introducción breve para lograr que la gente se interese en tu proyecto. Este texto se verá en la página principal del mismo.'''
   WFDescription:
-    label: 'Workflow description'
-    help: '''Add text here when you have multiple workflows and want to help your volunteers decide which one they should do.'''
+    label: 'Descripción de los flujos de trabajo'
+    help: '''Agregá una porción de texto aquí cuando hayas definido múltiples flujos de trabajo, y quieras ayudar a tus voluntarios decidir en cuáles quieren trabajar.'''
   banner:
-    label: 'Announcement Banner'
-    help: '''This text will appear as a banner at the top of all your project's pages. Only use this when you've got a big important announcement to make!'''
+    label: 'Banner de anuncios'
+    help: '''Este texto aparecerá como banner en la parte superior de todas las páginas del proyecto. Esto debe utilizarse solamente cuando tengas que hacer anuncios importantes.'''
   tags:
-    label: 'Tags'
-    help: '''Enter a list of tags separated by commas to help users find your project.'''
+    label: 'Etiquetas'
+    help: '''Ingresá un listado de etiquetas (tags) separadas por comas, para ayudar a los usuarios a encontrar tu proyecto.'''
   externals:
-    label: 'External links'
-    help: '''Adding an external link will make it appear as a new tab alongside the science, classify, and talk tabs.'''    
+    label: 'Links externos'
+    help: '''Agregar un link externo hará que aparezca como una pestaña nueva junto con las pestañas de Investigación, Clasificar y Discusión, en la página principal del proyecto. Este link puede llevar, por ejemplo, a un sitio de tu autoría que describa el proyecto real.''' 
+    URLLabel: 'Etiqueta'
+    URL: 'URL'
+    addLabel: 'Agregar link'   
 
 
 MAX_AVATAR_SIZE = 64000
@@ -89,8 +99,8 @@ ExternalLinksEditor = React.createClass
       <table>
         <thead>
           <tr>
-            <th>Label</th>
-            <th>URL</th>
+            <th><Translate content="externals.URLLabel" /></th>
+            <th><Translate content="externals.URL" /></th>
           </tr>
         </thead>
         <tbody>
@@ -113,7 +123,7 @@ ExternalLinksEditor = React.createClass
       </table>
 
       <AutoSave resource={@props.project}>
-        <button type="button" onClick={@handleAddLink}>Add a link</button>
+        <button type="button" onClick={@handleAddLink}><Translate content="externals.addLabel" /></button>
       </AutoSave>
     </div>
 
@@ -168,7 +178,7 @@ module.exports = React.createClass
 
           <hr />
 
-          Background image<br />
+          <Translate content="background.label" /><br />
           <PromiseRenderer promise={@backgroundGet} then={(background) =>
             placeholder = <div className="form-help content-container"><Translate content="background.overText" /></div>
             <ImageSelector maxSize={MAX_BACKGROUND_SIZE} src={background?.src} placeholder={placeholder} onChange={@handleMediaChange.bind this, 'background'} />
@@ -192,7 +202,7 @@ module.exports = React.createClass
         </div>
 
         <div className="column">
-          <DisplayNameSlugEditor resource={@props.project} resourceType="project" />
+          <DisplayNameSlugEditor resource={@props.project} resourceType="proyecto" />
 
           <p>
             <AutoSave resource={@props.project}>
