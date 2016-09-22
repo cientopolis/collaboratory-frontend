@@ -130,8 +130,8 @@ ExternalLinksEditor = React.createClass
   handleAddLink: ->
     changes = {}
     changes["urls.#{@props.project.urls.length}"] =
-      label: 'Example'
-      url: 'https://example.com/'
+      label: 'Ejemplo'
+      url: 'https://ejemplo.com/'
     @props.project.update changes
 
   handleRemoveLink: (linkToRemove) ->
@@ -186,7 +186,7 @@ module.exports = React.createClass
           {if @state.backgroundError
             <div className="form-help error">{@state.backgroundError.toString()}</div>}
 
-          <p><small className="form-help"><Translate content="avatar.description" /></small></p>
+          <p><small className="form-help"><Translate content="background.description" /></small></p>
 
           <hr />
 

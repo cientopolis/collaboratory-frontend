@@ -271,7 +271,7 @@ counterpart.registerTranslations 'es',
 
       Este tutorial te ayudará durante el proceso de creación, utilizando el proyecto "Recorriendo La Plata"
       como ejemplo.
-      Podés explorar el [proyecto real] (http://ec2-52-196-4-55.ap-northeast-1.compute.amazonaws.com/projects/investigador/recorriendo-la-plata).
+      Podés explorar el [proyecto real](http://ec2-52-196-4-55.ap-northeast-1.compute.amazonaws.com/projects/investigador/recorriendo-la-plata).
 
       [![Kitteh Zoo screenshot](./assets/how-to-lab/how-to-1.jpg)](./assets/how-to-lab/how-to-1.jpg)
 
@@ -328,53 +328,57 @@ counterpart.registerTranslations 'es',
       Se pueden agregar tareas subsecuentes dependiendo de la respuesta a la pregunta. Por ejemplo, si responde que sí, entonces podemos agregar un recuadro donde el voluntario pueda escribir el edificio que reconoce; y si elije que no, entonces termina la tarea (opción "Fin de la clasificación"). Una vez que creemos todas las tareas, las podemos vincular creando un flujo dependiendo de las respuestas que se vayan dando. También, en la sección de "Elección", se puede configurar si se permite selección múltiple (seleccionar más de una opción, aunque en este caso de ejemplo no tendría sentido), y si la pregunta es requerida (no se puede pasar a analizar otra imagen, o a la siguiente pregunta, si no se responde algo)
 
 
-      Ahora queremos dibujar un recuadro alrededor del edificio que encontramos. ¿Por qué? Porque sí, porque podemos. (En realidad, es a modo de ejemplo)
-
-      Now we want to draw circles around the cat's faces and mark a point on their tails. Why? Because we can. (For your own project you'd obviously want to think carefully about the reasons for adding tasks to a workflow, and what you want to get from the answers/marks.)
+      Ahora queremos dibujar un recuadro alrededor del edificio que encontramos. ¿Por qué? Porque sí, porque podemos. (En realidad, es a modo de ejemplo. En un proyecto real hay que pensar cuidadosamente las tareas que pedimos a los voluntarios)
 
       [![Project workflow task editing screenshot](./assets/how-to-lab/how-to-7.jpg)](./assets/how-to-lab/how-to-7.jpg)
 
-      So under the _Task_ list, we'll click on **drawing**. We're asking folks to draw (with ellipses) around the cats' faces, as well as mark their tail tips with a point. We've changed the color on the Cattail points so they stand out more too. As usual, the main text gives people basic instructions on what we want, and the help text provides some more explanation on how to do the task.
+      Entonces, debajo de la lista _Tareas_, clickeamos en "Agregar tarea", y luego en "Dibujo". Vamos a pedir a los voluntarios que dibujen (con rectángulos) la parte principal del edificio que vean. Como en las tareas del otro tipo, el texto principal provee instrucciones básicas en lo que queremos que el voluntario haga, y luego extendemos un poco en la sección de "Texto de ayuda".
 
-      In addition to marking all the cat faces, we want to know just how cute they are. So every time someone marks a cat-face, we've added a pop-up question to ask just that. Add this question by clicking on the _sub-tasks_ button below the _Type_ and _Color_ task specifications.
+      En adición al rectángulo marcado, queremos que el voluntario nos diga qué tanto les gusta el edificio en términos de arquitectura (otra vez, esta pregunta carece de sentido en un contexto de proyecto real; esto es solamente como ejemplo). Así, cada vez que un voluntario marque el edificio con un rectángulo, a continuación agregamos una pregunta estilo pop-up que pregunte lo mencionado. Para agregar esta pregunta, hacer click en el botón _sub-tareas_ debajo de las especificaciones de _Tipo_ y _Color_.
+
 
       [![Project workflow task details editing screenshot](./assets/how-to-lab/how-to-8.jpg)](./assets/how-to-lab/how-to-8.jpg)
 
-      When building your own project, you can combine any number of tasks in any order. You can start with a drawing task instead of a question. You can add sub-tasks for any drawing tool you make.
+      Al crear tu propio proyecto, podés combinar cualquier cantidad de tareas en cualquier orden. Podés empezar con una tarea de dibujo en lugar de una pregunta. También podés agregar sub-tareas para cualquiera de las tareas de dibujo que agregues.
 
-      In general, keep in mind that people are more likely to complete more classifications if the workflow is short and simple. Try to keep the workflow as simple as possible to achieve your research goals, and definitely try to only request tasks that cannot be accurately accomplished by automated methods.
+      Tené en cuenta que en general es más probable que los voluntarios completen más clasificaciones si el flujo de trabajo es corto y simple. Idealmente deberías intentar que éste sea lo más simple posible, para poder alcanzar más fácilmente los objetivos de la investigación, y definitivamente que las tareas que solicites no puedan ser logradas de manera precisa por métodos automatizados (por ejemplo, un algoritmo de reconocimiento facial)
 
-      ### Linking the workflow together
 
-      Now that all the tasks have been created, we've got to string them together by specifying what happens _next_. Right now, this means you kind of need to work backwards. The drawing task is the last task in this workflow, so we'll leave the "Next Task" button as the default "end of classification." But we'll have to go back to our first question.
+      ### Uniendo las tareas entre sí
 
-      The first question, "How many cats are in this image?" only allows one answer, so you can specify the next task depending on the answer.  If folks say "None" for the number of cats, the classification ends. But if they say there's at least one cat, then they go on to the next question.
+      Ahora que se han creado todas las tareas, tenemos que unirlas mediante la especificación de lo que pasa _siguiente_. Esto significa que hay que trabajar un poco hacia atrás. La tarea de marcado es la última en este flujo de trabajo, así que vamos a dejar el botón de "Siguiente tarea" con el valor "fin de clasificación" que viene por defecto. Pero vamos a tener que volver a nuestra primera pregunta.
+
+      La primera pregunta, "¿Ves un edificio representativo de la ciudad de La Plata?", permite tres tipos de respuestas: 'Sí', 'No', y 'No estoy seguro'. Si el usuario elige cualquiera de las dos últimas, entonces se termina la clasificación de esta imagen. En cambio, si elige 'Sí', entonces tenemos que pasar a la tarea de dibujo/marcado.
 
       [![Project workflow task editing screenshot](./assets/how-to-lab/how-to-9.jpg)](./assets/how-to-lab/how-to-9.jpg)
 
-      ### Upload subjects
+      ### Subir elementos de análisis
 
-      To really get started building a project, you need images to work with. Normally you would add your own images by clicking on the "New Subject Set" button on the left hand side of the screen. This is one of the trickier steps in project creation -- for the purposes of this tutorial you can simply copy the Kitteh Zoo subject set, but check out the next section "Uploading subjects -- the nitty gritty" if you want to practice the full approach. To do this go to the workflow you created and under the _associated subject_ set section click on _add an example subject set_. You should now see the 'kittehs' subject set selected.
+      Para realmente armar un proyecto, necesitamos imágenes sobre las cuales trabajar. Para esto, hacemos click en el botón de "Nuevo conjunto de análisis" en el panel de la izquierda.
 
-      [![Project workflow task editing screenshot](./assets/how-to-lab/how-to-10.jpg)](./assets/how-to-lab/how-to-10.jpg)
+      Es más fácil si tenés todas tus imágenes en una misma carpeta, junto con un manifiesto, para así subirlos al mismo tiempo. El manifiesto lista todas las imágenes que queremos subir, y relaciona cada imágen con información adicional (también llamada metadata), tal como fecha, hora, y el nombre de quien tomó la fotografía. Hay más información sobre el manifiesto en la sección de "Detalles" más abajo, pero por ahora podés ver un manifiesto de ejemplo aquí["Kitteh" zip file](https://data.zooniverse.org/tutorial/kitteh_zoo.zip).
 
-      **CONGRATULATIONS!**
+      Hacé click en el recuadro con líneas punteadas y dirigite a la carpeta con tus imágenes. La forma más simple de realizarlo es presionar Ctrl + A para seleccionar todo (imágenes + manifiesto), y luego hacer click en "Abrir". Tendría que indicarse ahora que el manifiesto tiene X elementos a subir, donde X es la cantidad de imágenes listadas.
 
-      You should have successfully created Kitteh Zoo! To view it, got back to the _Build a Project_ page (by clicking the button in the top right of the page) and then click on the view button next to the new project you have just made.
+      Hacé click en "Subir" para empezar el proceso. Puede llevar un tiempo, pero cuando termine, podrás ver un listado con todos los elementos. Los números a la izquierda representan un identificador único de la imágen, mientras que los botones de la derecha te permiten ver y/o borrar el elemento, respectivamente.
+
+      Los conjuntos de análisis pueden ser robustos, y a veces complejos. Podés tener un solo conjunto al que vas agregando imágenes a lo largo del tiempo; o tener múltiples conjuntos, por ejemplo para diferentes años o lugares. También es posible tener un conjunto de análisis diferente para cada flujo de trabajo, aunque esto no es necesario. También es posible incluso tener múltiples imágenes en un mismo elemento. Para más detalles y consejos sobre la creación y estructuración de conjuntos de análisis, consultá la sección de "Detalles" más abajo.
+
+
+      **Felicidades!!**
+
+      ¡Creaste satisfactoriamente el proyecto! Para verlo, podés volver a la página de "Construya un proyecto" en el panel de navegación de arriba, y luego clickear en el botón "Ver" junto al proyecto que creaste recién.
 
       [![Project list screenshot](./assets/how-to-lab/how-to-11.jpg)](./assets/how-to-lab/how-to-11.jpg)
 
-      ### Uploading subjects - the Nitty Gritty
 
-      When you actually build your own project, there won't be an example set of images already loaded for you. Get started uploading a set of subjects for your project by clicking on the "New Subject Set" button on the left hand side of the screen. That will bring you to the _Subject Uploader_.
+      ### Manual de creación de proyectos – DETALLES
 
-      It's easiest if you have all of your images in a single folder along with a manifest file, and you will upload both at the same time. The manifest file lists all the images we want to upload and links each  image to additional information, also called metadata, such as date, time, and photographer. There is more information about the manifest in the "Details" section below, but for now you can see an example manifest file in the ["Kitteh" zip file](https://data.zooniverse.org/tutorial/kitteh_zoo.zip).
+      - **Proyecto**:
 
-      Click on the "Upload Subjects" box and navigate to the "Kitteh" folder you downloaded. The easiest thing to do is simply hit _cmd + a_ (on Mac, or _ctrl + a_ on Windows) to select everything in that folder. Note that the subject uploader ignores the excel file and the other folders. Click "open" to select those images and the manifest file for upload. The project uploader now indicates that the "Cat project manifest.csv" has 29 subjects for upload.
 
-      Click "Upload" to start the process. It might take a little while, but when everything is uploaded, you'll see a list of all of the subjects. The numbers to the left are unique identifiers for each subject, and the icons to the right let you preview or delete each subject.
 
-      Subject sets can be pretty powerful, and sometimes complex. You can have a single subject set that you add to over time, or have multiple subject sets, say, from different years or places. You can have different subject sets for different workflows, but you don't have to. You can even have multiple images in a given subject. For more details and advice on creating and structuring subject sets and associated manifests, check out the details section below.
+
 
       ### PROJECT BUILDER'S MANUAL – THE DETAILS
 

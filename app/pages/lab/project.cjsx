@@ -26,6 +26,17 @@ counterpart.registerTranslations 'en',
         visibility: "Visibility"
         talk: "Talk"
         exports: "Data exports"
+      hover:
+        details: "Input the basic information about your project, and set up its home page."
+        research: "Research"
+        results: "Results"
+        faq: "FAQ"
+        education: "Education"
+        collaborators: "Collaborators"
+        media: "Media"
+        visibility: "Visibility"
+        talk: "Talk"
+        exports: "Data exports"        
       workflows: "Workflows"
       newWorkflow: "New workflow"
       newSS: "New subject set"
@@ -63,9 +74,9 @@ counterpart.registerTranslations 'es',
       other: "Otras acciones"
       delete: "Borrar proyecto"
 
-DEFAULT_WORKFLOW_NAME = 'Untitled workflow'
-DEFAULT_SUBJECT_SET_NAME = 'Untitled subject set'
-DELETE_CONFIRMATION_PHRASE = 'I AM DELETING THIS PROJECT'
+DEFAULT_WORKFLOW_NAME = 'Flujo de trabajo sin nombre'
+DEFAULT_SUBJECT_SET_NAME = 'Conjunto de análisis sin nombre'
+DELETE_CONFIRMATION_PHRASE = 'ESTOY BORRANDO ESTE PROYECTO'
 
 EditProjectPage = React.createClass
   displayName: 'EditProjectPage'
@@ -97,7 +108,6 @@ EditProjectPage = React.createClass
       <div>
         <ul className="nav-list">
           <li><div className="nav-list-header"><Translate content="editProject.sidebar.project.label" /> #{@props.project.id}</div></li>
-
           <li><IndexLink to={@labPath()} activeClassName='active' className="nav-list-item" title="Input the basic information about your project, and set up its home page.">
             <Translate content="editProject.sidebar.project.details" />
           </IndexLink></li>
@@ -231,9 +241,9 @@ EditProjectPage = React.createClass
       tasks:
         init:
           type: 'single'
-          question: 'Ask your first question here.'
+          question: 'Hacé tu primer pregunta aquí.'
           answers: [
-            label: 'Yes'
+            label: 'Sí'
           ]
       first_task: 'init'
       links:
@@ -278,8 +288,8 @@ EditProjectPage = React.createClass
     @setState deletionError: null
 
     confirmed = prompt("""
-      You are about to delete this project and all its data!
-      Enter #{DELETE_CONFIRMATION_PHRASE} to confirm.
+      Estás a punto de borrar este proyecto y toda la información asociada al mismo.
+      Escribí #{DELETE_CONFIRMATION_PHRASE} para confirmar.
     """) is DELETE_CONFIRMATION_PHRASE
 
     if confirmed

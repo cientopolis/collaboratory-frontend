@@ -16,12 +16,25 @@ counterpart.registerTranslations 'en',
     tester: 'Tester'
     expert: 'Expert'
 
+counterpart.registerTranslations 'es',
+  title: 'Caso de estudio'
+  noneYet: 'Este proyecto aún no ha definido un caso de estudio.'
+  projectRoles:
+    title: 'El equipo'
+    owner: 'Dueño'
+    collaborator: 'Colaborador'
+    translator: 'Traductor'
+    scientist: 'Investigador'
+    moderator: 'Moderador'
+    tester: 'Tester'
+    expert: 'Experto'       
+
 module.exports = React.createClass
   displayName: 'ProjectScienceCasePage'
 
   mixins: [TitleMixin]
 
-  title: 'Science case'
+  title: 'Caso de estudio'
 
   render: ->
     <div className="project-text-content content-container">
@@ -31,7 +44,7 @@ module.exports = React.createClass
             if science_case?.content
               science_case?.content
             else
-              'This project has no science case yet.'
+              <Translate content="noneYet" />
           }</Markdown>
         }</PromiseRenderer>
         <hr />

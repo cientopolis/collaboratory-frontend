@@ -9,11 +9,21 @@ ProjectIcon = require '../../components/project-icon'
 
 counterpart.registerTranslations 'en',
   projectStatus:
+    all: 'All'
     launchApproved: 'Launch Approved'
     launchRequested: 'Launch Requested'
     betaApproved: 'Beta Approved'
     betaRequested: 'Beta Requested'
   notFound: 'No projects found for this filter'
+
+counterpart.registerTranslations 'es',
+  projectStatus:
+    all: 'Todos'
+    launchApproved: 'Lanzamiento aprobado'
+    launchRequested: 'Lanzamiento solicitado'
+    betaApproved: 'Beta aprobada'
+    betaRequested: 'Beta solicitada'
+  notFound: 'No se encontraron proyectos con este filtro'  
 
 module.exports = React.createClass
   displayName: "ProjectStatusPage"
@@ -37,7 +47,7 @@ module.exports = React.createClass
   render: ->
     <div className="project-status-page">
       <nav className="project-status-filters">
-        <Link to="/admin/project_status">All</Link>
+        <Link to="/admin/project_status"><Translate content="projectStatus.all" /></Link>
         <Link to="/admin/project_status?filterBy=launch_approved"><Translate content="projectStatus.launchApproved" /></Link>
         <Link to="/admin/project_status?filterBy=launch_requested"><Translate content="projectStatus.launchRequested" /></Link>
         <Link to="/admin/project_status?filterBy=beta_approved"><Translate content="projectStatus.betaApproved" /></Link>

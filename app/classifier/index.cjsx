@@ -327,7 +327,7 @@ Classifier = React.createClass
       <nav className="task-nav">
         {if @props.owner? and @props.project?
           [ownerName, name] = @props.project.slug.split('/')
-          <Link onClick={@props.onClickNext} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button">Talk</Link>}
+          <Link onClick={@props.onClickNext} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button">Discusión</Link>}
         <button type="button" className="continue major-button" onClick={@props.onClickNext}><Translate content="next" /></button>
         {@renderExpertOptions()}
       </nav>
