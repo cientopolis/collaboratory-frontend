@@ -374,46 +374,56 @@ counterpart.registerTranslations 'es',
 
       ### Manual de creación de proyectos – DETALLES
 
-      - **Proyecto**:
+      - **Proyecto**: es lo que contiene los detalles a nivel proyecto: el nombre del mismo, las personas involucradas, y todo el contenido extra (como texto e imágenes) que quieras compartir.
+        - **Detalles del proyecto**: esto corresponde al "detrás de las cámaras" del proyecto. Empezá nombrando y describiendo tu proyecto, y agregando un logo y una imágen de fondo.
+        - **Investigación, resultados, preguntas frecuentes y educación**: podés agregar mucha información en estas secciones, para ayudar a los voluntarios a entender mejor la motivación de tu proyecto, los mejores enfoques para clasificar, y los resultados de tu proyecto.
+        - **Colaboradores**: sumá gente a tu equipo y especificá cuáles son sus roles para que así tengan acceso a las herramientas que necesitan (incluyendo acceso al proyecto antes de que esté listo).
+        - **Flujos de trabajo**: un flujo de trabajo representa la secuencia de tareas que querés que los voluntarios realicen. Por ejemplo, podrías pedir a los voluntarios que respondan preguntas sobre tus imágenes, o realizar marcas en las mismas, o ambas. El flujo de trabajo es donde definís esas tareas y el orden en el que los voluntarios tendrán que realizarlas. Tu proyecto puede tener múltiples flujos de trabajo (si querés configurar diferentes tareas para diferentes conjuntos de análisis).
+      - **Elemento de análisis**: se trata de la unidad de datos que se desee analizar, y está contenida dentro de un conjunto de análisis. Un elemento puede estar compuesto de una o más imágenes que serán analizadas al mismo tiempo por diferentes voluntarios. Un conjunto de análisis consiste de una lista de elementos (referido anteriormente como "manifiesto") donde se definen sus propiedades, y las imágenes en sí. Tenés la libertad de agrupar los elementos en diferentes conjuntos de la manera que sea más útil y significativa para tu investigación.
 
 
+      ### DETALLES - Flujos de trabajo
 
+      Es importante notar que un flujo de trabajo con pocas tareas será más fácil de completar por los voluntarios. Es sabido que mucha gente colabora en este tipo de proyectos en su tiempo libre, y usualmente disponen de poco tiempo. Flujos de trabajo más largos y complejos equivale a más tiempo para realizar una sola clasificación, que al mismo tiempo puede significar la pérdida de tus voluntarios.
 
-
-      ### PROJECT BUILDER'S MANUAL – THE DETAILS
-
-      - **Project**: This holds all your project level details. The project name, the people involved, and all the extra content (e.g. text and pictures) you want to share, are all here.
-        - **Project Details**: This is your project's "behind the scenes" home page. Start off by naming and describing your project, add a logo and background image.
-        - **Research Case, FAQ, Results, and Education**: You can add a lot of information in these pages to help volunteers better understand the motivation for your project, the best approaches for classifying, and the outcomes of your project.
-        - **Collaborators**: Add people to your team and specify what their roles are so that they have the right access to the tools they need (including access to the project before it's public).
-        - **Workflows**: A workflow is the sequence of tasks that you're asking volunteers to perform. For example, you might want to ask volunteers to answer questions about your images, or to mark features in your data, or both. The workflow is where you define those tasks and set out the order in which the volunteers will do them. Your project might have multiple workflows (if you want to set different tasks for different image sets).
-      - **Subjects**: A subject is a unit of data to be analyzed. A subject can include one or more images that will be analyzed at the same time by volunteers. A subject set consists of a list of subjects (the "manifest") defining their properties, and the images themselves. Feel free to group subjects into sets in the way that is most useful for your research. Many projects will find it's best to just have all their subjects in 1 set, but not all.
 
       ### DETAILS - Workflows
 
       Note that a workflow with fewer tasks will be easier for volunteers to complete. We know from surveys of our volunteers that many people classify in their limited spare time, and sometimes they only have a few minutes. Longer, more complex workflows mean each classification takes longer, so if your workflow is very long you may lose volunteers.
 
-      _Workflow Name_: Give your workflow a short, but descriptive name. If you have multiple workflows and give volunteers the option of choosing which they want to work on, this name will appear on a button instead of "Get started!"
+      _Nombre_: nombrá a tu flujo de trabajo de manera concisa y descriptiva. Si tenés múltiples flujos de trabajo y activás la opción para que los voluntarios elijan en cuál de ellos quieren trabajar, este nombre es el que aparecerá en un botón en lugar de "¡Sé parte ahora!"
 
-      _Version_: Version indicates which version of the workflow you are on. Every time you save changes to a workflow, you create a new version. Big changes, like adding or deleting questions, will change the version by a whole number: 1.0 to 2.0, etc. Smaller changes, like modifying the help text, will change the version by a decimal, e.g. 2.0 to 2.1. The version is tracked with each classification in case you need it when analyzing your data.
+      _Version_: Versión indica el número de versión en el que nos encontramos. Cada vez que se guarden cambios en un flujo de trabajo, se crea una nueva versión. Cambios grandes, como agregar o borrar preguntas, cambiarán el número de versión entero: 1.0 a 2.0, etc. Cambios más pequeños, como modificar el texto de ayuda, cambarán el número de versión decimal: 2.0 a 2.1, etc. El número de versión queda registrado con cada clasificación que hagan los voluntarios, en caso de que lo necesites cuando analices los resultados.
 
-      _Tasks_: There are two main types of tasks: questions and drawing. For question tasks, the volunteer chooses from a list of answers but does not mark or draw on the image. In drawing tasks, the volunteer marks or draws directly on the image using tools that you specify. They can also give sub-classifications for each mark. Note that you can set the first task from the drop-down menu.
+      _Tareas_: hay dos tipos principales de tareas: preguntas y dibujo/marcado. Para las tareas con preguntas, el voluntario selecciona una respuesta en un listado, pero no hace marcas o dibujos en la imágen. En cambio, en las tareas de dibujo/marcado, el voluntario hace marcas o dibuja directamente sobre la imágen utilizando herramientas que especifiques. También pueden proporcionar subclasificaciones para cada marca que hacen.
 
-      _Main Text_: Describe the task, or ask the question, in a way that is clear to a non-expert.
+      _Texto principal_: Describí la tarea, o realizá la pregunta, de manera tal que sea clara para un no experto.
 
-      The wording here is very important, because you will in general get what you ask for. Solicit opinions from team members and testers before you make the project public: it often takes a few tries to reach the combination of simplicity and clarity that will guide your volunteers to give you the inputs you need.
+      La elección de palabras es muy importante, porque en general vas a obtener exactamente lo que preguntás. Solicitá opiniones al resto del equipo antes de hacer público el proyecto. Usualmente son necesarios algunos intentos para alcanzar la combinación adecuada de simplicidad y claridad para que tus voluntarios proporcionen la información que necesitás.
 
-      You can use markdown in the main text.
+      Podés usar markdown para darle formato a este texto.
 
-      _Help Text_: Add text and images for a pop-up help window. This is shown next to the main text of the task in the main classification interface, when the volunteer clicks a button asking for help. You can use markdown in this text, and link to other images to help illustrate your description. The help text can be as long as you need, but you should try to keep it simple and avoid jargon. One thing that is useful in the help text is a concise description of why you are asking for this particular information.
+      _Texto de ayuda_: Agregá texto y/o imágenes a una ventana que aparece cuando el voluntario hace click en "¿Necesita ayuda?". Podés usar markdown para darle formato a este texto y a las imágenes. Este texto puede ser tan extenso como sea necesario, pero lo ideal es evitar terminología específica. Algo que suele ser útil es aclarar por qué estás realizando la pregunta, o por qué solicitás cierta información.
 
-      ### DETAILS - Project Details:
 
-      _Name_: The project name is the first thing people will see and it will show up in the project URL. Try to keep it short and sweet.
+      ### DETALLES - Detalles del proyecto
 
-      _Avatar_: Pick an avatar image for your project. This will represent your project on the Zooniverse home page. It can also be used as your project's brand. It's best if it's recognizable even as a small icon. To add an image, either drag and drop or click to open your file viewer. For best results, use a square image of not more than 50KB, but at minimum 100x100 pixels.
+      _Nombre_: El nombre del proyecto es lo primero que los usuarios van a ver sobre el proyecto, y aparecerá en la URL del mismo. Lo mejor es que sea breve y conciso.
 
-      _Background_: This image will be the background for all of your project pages, including your project's front page, which newcomers will see first. It should be relatively high resolution and you should be able to read text written across it. To add an image, either drag and drop or click to open your file viewer. For best results, use images of at least 1 megapixel, no larger than 256 KB. Most people's screens are not much bigger than 1300 pixels across and 750 pixels high, so if your image is a lot bigger than this you may find it doesn't look the way you expect. Feel free to experiment with different sizes on a "typical" desktop, laptop or mobile screen.
+      _Avatar_: Elegí un logo para tu proyecto. Esto va a representar al mismo en la página principal del sitio. También puede ser usado como la marca de tu proyecto. Lo ideal es que sea reconocible incluso como un ícono pequeño. Para obtener mejores resultados, es recomendable utilizar una imagen cuadrada de no más de 50KB, y un mínimo de 100 pixels.
+
+      _Imagen de fondo_: Esta será la imagen de fondo en todas las páginas del proyecto, incluyendo la página principal, que es la que verán los recién llegados. Tendría que ser de una resolución relativamente alta, y que sea posible leer texto sobre la misma. Para obtener mejores resultados, es recomendable utilizar una imagen con buena calidad (1 megapixel) de no más de 256KB.
+
+      _Descripción_: Esta sería la frase bien concisa que atrape a tus potenciales voluntarios, y que se muestra en la página principal del proyecto. Así, algunos voluntarios decidirán si participar o no, basado en este texto.
+
+      _Introducción_: Agregá una introducción breve para lograr que la gente se interese en tu proyecto. Este texto se verá en la página principal del mismo. Este campo (soporta markdown)[http://markdownlivepreview.com/], así que es posible darle formato al texto. El contenido de este campo puede ser más largo que la descripción, pero sin embargo sería mejor dejar texto más largo para las seccciones de Investigación o Preguntas frecuentes.
+
+      _Checkbox: Los voluntarios pueden elegir el flujo de trabajo en el cual trabajar_:
+
+
+
+
+      
 
       _Description_: This should be a one-line call to action for your project. This will display on your landing page and, if approved, on the Zooniverse home page. Some volunteers will decide whether to try your project based on reading this, so try to write short text that will make people actively want to join your project.
 
