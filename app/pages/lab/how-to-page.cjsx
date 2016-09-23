@@ -418,110 +418,104 @@ counterpart.registerTranslations 'es',
 
       _Introducción_: Agregá una introducción breve para lograr que la gente se interese en tu proyecto. Este texto se verá en la página principal del mismo. Este campo (soporta markdown)[http://markdownlivepreview.com/], así que es posible darle formato al texto. El contenido de este campo puede ser más largo que la descripción, pero sin embargo sería mejor dejar texto más largo para las seccciones de Investigación o Preguntas frecuentes.
 
-      _Checkbox: Los voluntarios pueden elegir el flujo de trabajo en el cual trabajar_:
+      _Checkbox: Los voluntarios pueden elegir el flujo de trabajo en el cual trabajar_: Como tu proyecto puede tener múltiples flujos de trabajo (por si es necesario configurar diferentes tareas para diferentes conjuntos de imágenes), es posible permitir a los voluntarios elegir en cuál de los flujos trabajar. De otro modo, se les asignará un par flujo de trabajo-conjunto de análisis de manera aleatoria.
+
+      _Checkbox: Proyecto privado_: En proyectos privados, solamente usuarios con roles específicos pueden verlo o incluso realizar clasificaciones en el mismo. Es recomendable dejar el proyecto en modo privado mientras configures los detalles. Compartilo con tu equipo para obtener opiniones, agregándolos al proyecto en el área de Colaboradores sobre el panel de la izquierda. Los usuarios que hayas agregados pueden ver el proyecto incluso estando en modo privado. Una vez que el proyecto pase a ser público, cualquiera con el link al mismo podrá verlo y realizar clasificaciones.
 
 
+      ### DETALLES - Contenido adicional
 
-
-      
-
-      _Description_: This should be a one-line call to action for your project. This will display on your landing page and, if approved, on the Zooniverse home page. Some volunteers will decide whether to try your project based on reading this, so try to write short text that will make people actively want to join your project.
-
-      _Introduction_: Add a brief introduction to get people interested in your project. This will display on your project's front page. Note this field (renders markdown)[http://markdownlivepreview.com/], so you can format the text. You can make this longer than the Description, but it's still probably best to save much longer text for areas like the Research Case or FAQ tabs.
-
-      _Checkbox: Volunteers choose workflow_: A workflow is a set of tasks a volunteer completes to create a classification. Your project might have multiple workflows (if you want to set different tasks for different image sets). Check this to let volunteers select which workflow they want to work on; otherwise, they'll be served workflow-subject pairs randomly.
-
-      _Checkbox: Private project_:
-      On "private" projects, only users with specified project roles can see or classify on the project. We strongly recommend you keep your project private while you're still working out its details. Share it with your team to get feedback by adding them in the Collaborators area (linked at the left). Team members you add can see your project even if it's private. Once your project is public, anyone with the link can view and classify on it.
-
-      ### DETAILS - Additional Content
-
-      _Research Case, FAQ, Results, and Education_: These pages are where you really get to share all the cool things about your project. All of these pages use Markdown (see link above) to format text and display images.
+      _Investigación, resultados, preguntas frecuentes y educación_: Estas son las secciones donde podés compartir todos los detalles en profundidad sobre tu proyecto. Todas permiten el uso de Markdown para dar formato al texto y para mostrar imágenes.
 
       [![Project additional content editor screenshot](./assets/how-to-lab/how-to-12.jpg)](./assets/how-to-lab/how-to-12.jpg)
 
-      _Research case_: Explain your research to your audience here in as much detail as you'd like. This page displays no matter what, since explaining your motivation to volunteers is critical for the success of your project!
+      _Investigación_: Explicá los detalles de tu proyecto de investigación con todo el lujo de detalle que desees. Explicar la motivación del proyecto y los objetivos del mismo a los voluntarios, puede ser crítico para el éxito del proyecto.
 
-      _Results_: Once your project has hit its stride, share the results of your project with your volunteers here. This page will only display if you add content to it.
+      _Resultados_: Una vez que el proyecto esté estable y maduro, compartí los resultados de la investigación con tus voluntarios en esta página. Esta página sólo va a mostrarse si agregás contenido.
 
-      _FAQ_: Add details here about your research, how to classify, and what you plan to do with the classifications. This page can evolve as your project does so that your active community members have a resource to point new users to. This page will only display if you add content to it.
+      _Preguntas frecuentes_: Agregá otros detalles de la investigación, cómo clasificar, y lo que tengas pensado hacer con las clasificaciones. El contenido en esta sección puede ir evolucionando a la par del proyecto, de manera que tu comunidad de colaboradores activos tenga una herramienta con la cual guiar a nuevos usuarios. Esta página sólo va a mostrarse si agregás contenido.
 
-      _Education_: If you are a researcher open to collaborating with educators you can state that here, include educational content, and describe how you'd like to help educators use your project. Also, if your project is primarily for educational purposes you can describe that here. This page will only display if you add content to it.
+      _Educación_: Si sos un investigador dispuesto a colaborar con educadores, podés aclararlo en esta sección. Incluir contenido educacional, y describir cómo te gustaría ayudar a los educadores a usar tu proyecto. Si tu proyecto es principalmente de índole educacional, también podés aclararlo aquí. Esta página sólo va a mostrarse si agregás contenido.
 
-      ### DETAILS - Media
 
-      You can upload your own media to your project (such as example images for your help pages) so  you can link to it without an external host. To start uploading, drop an image into the box (or click it to bring up your file browser and select a file).
+      ### DETALLES - Subir imágenes
 
-      Once the image has uploaded, it will appear above the "Add an image" box. You can then copy the markdown text beneath the image into your project, or add another image.
+      Es posible subir imágenes vinculadas a tu proyecto, que no corresponden a las imágenes de los conjuntos de análisis. Estas imágenes podrían usarse para las páginas de ayuda, sin la necesidad de subirlas a un servidor de imágenes externo.
 
-      ### DETAILS - Visibility
+      Una vez que la imagen se haya subido, aparecerá en el mismo recuadro para subirla, junto con el texto en Markdown que luego podés utilizar para mostrarla en otras secciones del proyecto.
 
-      This page is where you decide whether your project is public and whether it's ready to go live. For more information on the different project stages, see our [project builder policies](/lab-policies).
 
-      ### DETAILS - Collaborators
+      ### DETALLES - Visibilidad
 
-      Add people to your team and specify what their roles are so that they have the right access to the tools they need (including access to the project before it's public).
+      En esta sección es donde decidís si tu proyecto pasa a ser público, y si está listo para ponerse operacional (o también dicho como "en vivo"). Para más información sobre las diferentes etapas de un proyecto, visitá nuestras [políticas de creación de proyectos](/lab-policies).
+
+      ### DETALLES - Colaboradores
+
+      Sumá gente a tu equipo y especificá cuáles son sus roles para que así tengan acceso a las herramientas que necesitan (incluyendo acceso al proyecto antes de que esté listo).
 
       [![Project collaborator editor screenshot](./assets/how-to-lab/how-to-13.jpg)](./assets/how-to-lab/how-to-13.jpg)
 
-      _Owner_: The owner is the original project creator. There can be only one.
 
-      _Collaborator_: Collaborators have full access to edit workflows and project content, including deleting some or all of the project.
+      _Dueño_: Es el creador original del proyecto, por lo que sólo uno puede existir.
 
-      _Expert_: Experts can enter “gold mode” to make authoritative gold standard classifications that will be used to validate data quality.
+      _Colaborador_: Los colaboradores tienen acceso total para editar los flujos de trabajo y el contenido del proyecto, incluyendo poder borrar algunas cosas o el proyecto en sí.
 
-      _Researcher_: Members of the research team will be marked as researchers on “Talk"
+      _Experto_: Los expertos pueden entrar en el modo "estándar oro", en el cual pueden realizar clasificaciones autoritativas que sirven para validar la calidad de los datos ingresados por los voluntarios.
 
-      _Moderator_: Moderators have extra privileges in the community discussion area to moderate discussions. They will also be marked as moderators on “Talk".
+      _Investigador_: Los miembros del grupo de investigación serán marcados como tal en los foros de discusión.
 
-      _Tester_: Testers can view and classify on your project to give feedback while it’s still private. They cannot access the project builder.
+      _Moderador_: Los moderadores tienen privilegios extra en los foros de discusión de la comunidad, y son los que moderan estas discusiones. Serán marcados como tal en los foros de discusión.
 
-      _Translator_: Translators will have access to the project builder as well as the translation site, so they can translate all of your project text into a different language.
+      _Tester_: Un tester puede ver y realizar clasificaciones en el proyecto para brindar retroalimentación cuando el proyecto todavía es privado. Un tester no puede acceder a la sección de creación del proyecto.
 
-      ### DETAILS - Subject sets and manifest details, a.k.a. "What is a manifest?"
+      _Traductor_: Los traductores tienen acceso al sitio de traducción.
 
-      *The condensed answer:*
 
-      A manifest is a file that tells our software how to combine the images you have into units of data (subjects) to be classified. The manifest also allows you to link your classifications back to the rest of your data. A manifest is formatted as a CSV file with 1 line per subject, with a unique identifier and the names of images to be associated with a subject on each row (with additional information often included in other fields as well). There is an example in the ["Kitteh" zip file](https://data.zooniverse.org/tutorial/kitteh_zoo.zip).
+      ### DETALLES - Conjuntos de análisis y detalles del manifiesto; en otras palabras, ¿qué es un manifiesto?
 
-      *The full answer:*
+      *Respuesta breve:*
 
-      What we call a "manifest" is really just a plain text file with a specific format to each line.
+      Un manifiesto es un archivo que le dice a nuestra aplicación cómo combinar tus imágenes en unidades de datos (elementos) a ser clasificados. El manifiesto también permite relacionar tus clasificaciones con el resto de los datos. El formato de un manifiesto es en CSV (Coma Separated Values; o Valores Separados por Comas), con una línea por elemento, con un identificador único y los nombres de las imágenes que se asocian a un elemento en cada fila (con información adicional usualmente incluída en otros campo).
 
-      To understand the format, let's start with the first few lines from the Kitteh Zoo manifest:
+      *La respuesta completa:*
+
+      Lo que llamamos "manifiesto" es en realidad un archivo de texto un un formato específico para cada línea.
+      Para entender el formato, veamos unas líneas de ejemplo:
 
           subject_id,image_name_1,origin,link,attribution,license,#secret_description
           1,6672150457_420d61007d_b.jpg,Flickr,https://www.flickr.com/photos/aigle_dore/6672150457,Moyan Brenn,Creative Commons - share adapt attribute,sleepy striped kitteh is unsuspecting of paparazzi
           2,8300920648_d4a21bba59_z,Flickr,https://www.flickr.com/photos/aigle_dore/8300920648,Moyan Brenn,Creative Commons - share adapt attribute,grandfather kitteh has ear hair. a lot of it
           3,6713782851_82fc8c73e5_z.jpg,Flickr,https://www.flickr.com/photos/hellie55/6713782851,hehaden,Creative Commons - share adapt attribute,juvenile kittehs practice break-in at the catnip factory
 
-      The first line of the file is a header line that specifies the name of each of the manifest fields. In this case, our manifest has 7 fields (or columns), called "subject\_id", "image\_name", "origin", "link", "attribution", "license" and “#secret\_description”. They are separated by commas: this is what's known as a "comma separated values" file, or CSV file.
+      La primer línea del archivo es una línea tipo encabezado que especifica el nombre de cada uno de los campos del manifiesto. En el ejemplo de arriba, el manifiesto tiene 7 campos (o columnas): subject_id, image_name_1, origin, etc. También se observa que, como el nombre del formato lo indica, están separados por comas.
 
-      After the first line, each row of the file contains information about 1 subject. The first field, corresponding with the "subject\_id" header, is a unique number that identifies the subject. The second field, which aligns with the "image\_name" header, contains the name of the image that's associated with that subject. These 2 fields are critically important: the image name is obviously important, and a unique identifier is important for matching your classifications to the rest of your data.
+      En las líneas siguientes, cada línea contiene información sobre un elemento de análisis. El primer campo, correspondiente al encabezado de "subject_id", es un número único que identifica al elemento. El segundo campo correspondiente al encabezado de "image_name", contiene el nombre de la imagen que está asociada al elemento. Estos dos campos son críticos: el nombre de la imagen es obviamente importante, y un identificador único es importante para poder relacionar las clasificaciones con el resto de los datos.
 
-      All the other fields are optional, but in general having more information in the manifest is better. Most projects include additional information in the manifest that helps them match the classifications and subjects to the other data they need for their research. The additional information in the manifest can also be made available to volunteers as they classify (some very keen volunteers find this extremely useful). Any fields with names that begin with “#” or “//” will *not* be shown to volunteers, such as the “#secret\_description” field in Kitteh Zoo. These hidden fields will still be returned to you in the classification file, so you can use these to include information helpful to your research without worrying about whether it might affect the classifications themselves. Information in fields that *don’t* begin with either “#” or “//” will be accessible to volunteers.
+      El resto de los campos son opcionales, pero en general, más información en el manifiesto, mejor. Estos datos adicionales que agregues pueden ser mostrados a los voluntarios mientras clasifican (algunos voluntarios incluso encontrarán estos datos extra como muy útiles). Cualquier campo que empiece con "#" o "//" *no* será mostrado a los voluntarios, como el campo "#secret_description" de más arriba. Estos campos ocultos seguirán siendo visibles en tus archivos de clasificaciones, así que los podés utilizar para agregar información útil para la investigación, sin preocuparte de que puedan influenciar las clasificaciones por parte de los voluntarios. El resto de los campos sí podrá ser visible a los voluntarios.
 
-      For now, let’s assume you’re just including the bare minimum of information, like:
+      Por ahora, vamos a asumir que incluímos los campos mínimos, como
 
-          id,image
-          1,kitteh_in_box.jpg
-          2,kitteh_stalking.jpg
-          3,kitteh_losing_balance.jpg
+        identificador,imagen
+        1,foto_catedral.jpg
+        2,foto_edificio_generico.jpg
+        3,foto_teatro.jpg
 
-      Note the field names have changed from the previous example. That's because, aside from marking whether a field is hidden or not, it doesn't actually matter to the Zooniverse what the fields are called (or what order they’re in), so you can name and order them according to whatever works best for your project.
 
-      Using a manifest CSV file also makes it very easy to create subjects with multiple images:
+      Notar que los nombres de los campos cambiaron con respecto al ejemplo anterior. Esto es porque, aparte de marcar un campo como oculto o no, realmente no importa el nombre de los campos (o el orden de los mismos), así que podés nombrarlos y ordenarlos de acuerdo a lo que te resulte mejor.
 
-          id,image1,image2
-          1,kitteh_in_box.jpg,kitteh_eating_box.jpg
-          2,kitteh_stalking.jpg,kitteh_pounced.jpg
-          3,kitteh_losing_balance.jpg,kitteh_falling_off_sofa.jpg
+      Utilizar un manifiesto también hace más fácil crear elementos de clasificación que tengan múltiples imágenes:
 
-      If you upload this manifest plus the 6 images named in it, the Zooniverse software will create 3 subjects with 2 images each. When these subjects come up in the classification interface, volunteers will be able to flash between the images or switch between them manually.
+        identificador,imagen,imagen2
+        1,foto_catedral.jpg,foto_edificio_generico2.jpg
+        2,foto_edificio_generico.jpg,foto_campo.jpg
+        3,foto_teatro.jpg,foto_teatro2.jpg
 
-      You can create a manifest file in a simple text editor (such as TextEdit or Notepad), although this method is prone to errors like missed or extra commas. People often find it easiest to create manifest files using spreadsheet software such as Google Sheets, iWork Numbers or Microsoft Excel. Creating and maintaining a manifest using a spreadsheet makes the manifest easy to read, and you can export it to CSV format when you're ready to upload your subjects. You can also open existing CSV files in spreadsheet software.
 
-      *Note:* if you have a large subject set it may be cumbersome to manually create a manifest. We suggest using a command-line or other tool to copy-paste a directory list of files into a spreadsheet to help you get started.
+      Si subís un manifiesto como este, junto con las 6 imágenes, se crearán 3 elementos de análisis con 2 imágenes cada uno. Cuando cada uno de estos elementos aparezca en la sección de clasificación que ven los voluntarios, se podrá pasar entre las imágenes para verlas.
+
+      Podés crear un manifiesto en un editor de texto simple (como Notepad), aunque esta forma es propensa a errores como olvidar comas. Lo mejor es utilizar programas de hojas de cálculo como Microsoft Excel o Google Sheets. Crear y mantener un manifiesto usando alguno de estos programas hace que sea fácil de leer, y permiten exportarlos al formato CSV. También es posible abrir archivos CSV con estos programas.
+
+      *Nota:* si tenés un conjunto de análisis muy grande, puede resultar tedioso crear un manifiesto manualmente. Se sugiere utilizar un método automatizado.
     '''    
 
 module.exports = React.createClass
