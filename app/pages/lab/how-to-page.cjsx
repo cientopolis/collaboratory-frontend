@@ -416,7 +416,7 @@ counterpart.registerTranslations 'es',
 
       _Descripción_: Esta sería la frase bien concisa que atrape a tus potenciales voluntarios, y que se muestra en la página principal del proyecto. Así, algunos voluntarios decidirán si participar o no, basado en este texto.
 
-      _Introducción_: Agregá una introducción breve para lograr que la gente se interese en tu proyecto. Este texto se verá en la página principal del mismo. Este campo (soporta markdown)[http://markdownlivepreview.com/], así que es posible darle formato al texto. El contenido de este campo puede ser más largo que la descripción, pero sin embargo sería mejor dejar texto más largo para las seccciones de Investigación o Preguntas frecuentes.
+      _Introducción_: Agregá una introducción breve para lograr que la gente se interese en tu proyecto. Este texto se verá en la página principal del mismo. Este campo [soporta markdown](http://markdownlivepreview.com/), así que es posible darle formato al texto. El contenido de este campo puede ser más largo que la descripción, pero sin embargo sería mejor dejar texto más largo para las seccciones de Investigación o Preguntas frecuentes.
 
       _Checkbox: Los voluntarios pueden elegir el flujo de trabajo en el cual trabajar_: Como tu proyecto puede tener múltiples flujos de trabajo (por si es necesario configurar diferentes tareas para diferentes conjuntos de imágenes), es posible permitir a los voluntarios elegir en cuál de los flujos trabajar. De otro modo, se les asignará un par flujo de trabajo-conjunto de análisis de manera aleatoria.
 

@@ -32,21 +32,73 @@ counterpart.registerTranslations 'en',
     contains:
       l1: 'This set contains '
       l2: ' subjects: '
+  pagination:
+    page: 'Página '
+    of: ' de '
   uploadZone:
-    drag: ''
-    note: ''
+    drag: 'Drag-and-drop or click to upload manifests and subject images here.'
+    note: 
+      p1: '''Manifests must be '''
+      or: ' or '
+      p2: '''. The first row should define metadata headers. All other rows should include at least one reference to an image filename in the same directory as the manifest.'''
+      p3: '''Headers that begin with "#" or "//" denote private fields that will not be visible to classifiers in the main classification interface or in the Talk discussion tool.'''
+      p4: '''Subject images can be up to '''
+      p5: '''KB and any of: '''
+      p6: '''and may not contain '''
+  upload:
+    button:
+      p1: 'Upload '
+      p2: ' new subjects'
+    success:
+      p1: ' subjects created (with '
+      p2: ' files uploaded).'
+    error: 'Errors creating subjects:'
+  delete:
+    p1: 'Delete this subject set and its '
+    p2: ' subjects'
+   
 
 counterpart.registerTranslations 'es',
   help:
-    p1: '''A subject is a unit of data to be analyzed. A subject can include one or more images that will be analyzed at the same time by volunteers. A subject set consists of a list of subjects (the “manifest”) defining their properties, and the images themselves.'''
-    p2: '''Feel free to group subjects into sets in the way that is most useful for your research. Many projects will find it’s best to just have all their subjects in 1 set, but not all.'''
-    p3: '''We strongly recommend uploading subjects in batches of 500 - 1,000 at a time.'''
+    p1: '''En el contexto del proyecto, llamamos "elemento de análisis" a la unidad de datos que se quiere analizar. Este puede incluir una o más imágenes, y será analizado por varios voluntarios al mismo tiempo. Un conjunto de análisis consiste de un listado de estos elementos (el "manifiesto"), definiendo sus propiedades, y las imágenes en sí.'''
+    p2: '''Tenés la libertad de agrupar a los elementos en los conjuntos que quieras, de la forma que sea más significativa y útil para tu proyecto. Muchos proyectos usualmente encuentran que es mejor agrupar todos los elementos en sólo un conjunto, pero ese no necesariamente es tu caso.'''
+    p3: '''Es recomendable realizar la subida de elementos en tandas de 500 - 1.000.'''
   limitMessage:
-    l1: 'The project has '
-    l2: ' uploaded subjects. '
-    l3: 'You have uploaded '
-    l4: ' subjects from an allowance of '
-    l5: '. Your uploaded subject count is the tally of all subjects (including those deleted) that your account has uploaded through the project builder or Zooniverse api.'
+    l1: 'El proyecto tiene '
+    l2: ' elementos subidos. '
+    l3: 'Has subido '
+    l4: ' elementos, de un máximo permitido de '
+    l5: '. El contador de elementos subidos es la suma de todos los elementos (incluyendo aquellos borrados) que subiste desde tu cuenta.'
+  ss:
+    name: 'Nombre'
+    note: 'El nombre del conjunto de análisis sólo puede ser visto por el equipo del proyecto.'
+    contains:
+      l1: 'Este conjunto contiene '
+      l2: ' elementos: '
+  pagination:
+    page: 'Página '
+    of: ' de '
+  uploadZone:
+    drag: 'Arrastrá y soltá, o bien hacé click en este recuadro para subir manifiestos e imágenes.'
+    note: 
+      p1: '''Los manifiestos deben ser '''
+      or: ' o '
+      p2: '''. La primer fila debe definir encabezados de metadatos. El resto de las filas debe incluir al menos una referencia al nombre de archivo de una imagen en el mismo directorio que el manifiesto.'''
+      p3: '''Los encabezados que empiecen con "#" o "//" denotan campos privados que no pueden ser vistos por los colaboradores, ni en la página de clasificación, ni en los foros de discusión.'''
+      p4: '''Las imágenes de los elementos pueden ser de hasta '''
+      p5: '''KB y de los tipos: '''
+      p6: '''y no pueden contener '''
+  upload:
+    button:
+      p1: 'Subir '
+      p2: ' nuevos elementos'
+    success:
+      p1: ' elementos creados (con '
+      p2: ' archivos subidos).'
+    error: 'Errores creando los elementos:'
+  delete:
+    p1: 'Borrar este conjunto de análisis y sus '
+    p2: ' elementos'    
 
 NOOP = Function.prototype
 
@@ -126,13 +178,13 @@ SubjectSetListing = React.createClass
         <SubjectSetListingTable subjects={subjects} onPreview={@previewSubject} onRemove={@removeSubject} />
       } />
       <nav className="pagination">
-        Page <select value={@state.page} disabled={@state.pageCount < 2 or isNaN @state.pageCount} onChange={(e) => @setState page: e.target.value}>
+        <Translate content="pagination.page" /><select value={@state.page} disabled={@state.pageCount < 2 or isNaN @state.pageCount} onChange={(e) => @setState page: e.target.value}>
           {if isNaN @state.pageCount
             <option>?</option>
           else
             for p in [1..@state.pageCount]
               <option key={p} value={p}>{p}</option>}
-        </select> of {@state.pageCount || '?'}
+        </select><Translate content="pagination.of" />{@state.pageCount || '?'}
       </nav>
     </div>
 
@@ -174,7 +226,7 @@ EditSubjectSetPage = React.createClass
       <p className="form-help"><Translate content="help.p1" /></p>
       <p className="form-help"><Translate content="help.p2" />.</p>
       <p className="form-help">
-      <Translate content="limitMessage.l1" /> {@props.project.subjects_count} <Translate content="limitMessage.l2" /> +  <Translate content="limitMessage.l3" /> {@props.user.uploaded_subjects_count} <Translate content="limitMessage.l4"/> {@props.user.max_subjects} <Translate content="limitMessage.l5" />
+      <Translate content="limitMessage.l1" /> {@props.project.subjects_count} <Translate content="limitMessage.l2" /><Translate content="limitMessage.l3" /> {@props.user.uploaded_subjects_count} <Translate content="limitMessage.l4"/>{@props.user.max_subjects}<Translate content="limitMessage.l5" />
       </p>
       <p className="form-help"><strong><Translate content="help.p3" /></strong></p>
 
@@ -198,11 +250,11 @@ EditSubjectSetPage = React.createClass
 
       <p>
         <UploadDropTarget accept={"text/csv, text/tab-separated-values, image/*#{if isAdmin() then ', video/*' else ''}"} multiple onSelect={@handleFileSelection}>
-          <strong>Drag-and-drop or click to upload manifests and subject images here.</strong><br />
-          Manifests must be <code>.csv</code> or <code>.tsv</code>. The first row should define metadata headers. All other rows should include at least one reference to an image filename in the same directory as the manifest.<br />
-          Headers that begin with "#" or "//" denote private fields that will not be visible to classifiers in the main classification interface or in the Talk discussion tool.<br />
-          Subject images can be up to {MAX_FILE_SIZE / 1024}KB and any of: {<span key={ext}><code>{ext}</code>{', ' if VALID_SUBJECT_EXTENSIONS[i + 1]?}</span> for ext, i in VALID_SUBJECT_EXTENSIONS}{' '}
-          and may not contain {<span key={char}><kbd>{char}</kbd>{', ' if INVALID_FILENAME_CHARS[i + 1]?}</span> for char, i in INVALID_FILENAME_CHARS}<br />
+          <strong><Translate content="uploadZone.drag" /></strong><br />
+          <Translate content="uploadZone.note.p1" /><code>.csv</code><Translate content="uploadZone.note.or" /><code>.tsv</code><Translate content="uploadZone.note.p2" /><br />
+          <Translate content="uploadZone.note.p3" /><br />
+         <Translate content="uploadZone.note.p4" />{MAX_FILE_SIZE / 1024}<Translate content="uploadZone.note.p5" />{<span key={ext}><code>{ext}</code>{', ' if VALID_SUBJECT_EXTENSIONS[i + 1]?}</span> for ext, i in VALID_SUBJECT_EXTENSIONS}{' '}
+          <Translate content="uploadZone.note.p6" />{<span key={char}><kbd>{char}</kbd>{', ' if INVALID_FILENAME_CHARS[i + 1]?}</span> for char, i in INVALID_FILENAME_CHARS}<br />
         </UploadDropTarget>
       </p>
 
@@ -217,14 +269,14 @@ EditSubjectSetPage = React.createClass
             </li>}
         </ul>
 
-        <button type="button" className="major-button" disabled={subjectsToCreate is 0} onClick={@createSubjects}>Upload {subjectsToCreate} new subjects</button>
+        <button type="button" className="major-button" disabled={subjectsToCreate is 0} onClick={@createSubjects}><Translate content="upload.button.p1" />{subjectsToCreate}<Translate content="upload.button.p2" /></button>
 
         {unless @state.successfulCreates.length is 0
-          <div>{@state.successfulCreates.length} subjects created (with {@state.successfulUploads.length} files uploaded).</div>}
+          <div>{@state.successfulCreates.length}<Translate content="upload.success.p1" />{@state.successfulUploads.length}<Translate content="upload.success.p2" /></div>}
 
         {unless @state.creationErrors.length is 0
           <div>
-            Errors creating subjects:
+            <Translate content="upload.error" />
             <ul>
               {for error in @state.creationErrors
                 <li className="form-help error">{error.message}</li>}
@@ -237,12 +289,12 @@ EditSubjectSetPage = React.createClass
       <p>
         <small>
           <button type="button" className="minor-button" disabled={@state.deletionInProgress} onClick={@deleteSubjectSet}>
-            Delete this subject set and its {@props.subjectSet.set_member_subjects_count} subjects
+            <Translate content="delete.p1" />{@props.subjectSet.set_member_subjects_count}<Translate content="delete.p2" />
           </button>
         </small>{' '}
         {if @state.deletionError?
           <span className="form-help error">{@state.deletionError.message}</span>}
-      </p>
+      </p>  
     </div>
 
   handleSubmit: (e) ->

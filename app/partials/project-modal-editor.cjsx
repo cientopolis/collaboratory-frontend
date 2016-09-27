@@ -1,9 +1,17 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 apiClient = require 'panoptes-client/lib/api-client'
 putFile = require '../lib/put-file'
 FileButton = require '../components/file-button'
 {MarkdownEditor} = require 'markdownz'
 debounce = require 'debounce'
+
+counterpart.registerTranslations 'en',
+  loading: 'Loading...'
+
+counterpart.registerTranslations 'es',
+  loading: 'Cargando...'  
 
 ProjectModalStepEditor = React.createClass
   getDefaultProps: ->

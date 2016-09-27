@@ -1,8 +1,24 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 PromiseRenderer = require '../components/promise-renderer'
 apiClient = require 'panoptes-client/lib/api-client'
 moment = require 'moment'
 Translate = require 'react-translate-component'
+
+counterpart.registerTranslations 'en',
+  csv: "CSV format."
+  mostRecent: 'Most recent data available requested'
+  processing: 'Processing your request.'
+  never: 'Never requested.'
+  received: 'We’ve received your request, check your email for a link to your data soon!'
+
+counterpart.registerTranslations 'es',
+  csv: "formato CSV."
+  mostRecent: 'Datos solicitados más recientes'
+  processing: 'Procesando su solicitud.'
+  never: 'Nunca solicitado.'
+  received: 'Recibimos su petición. Revisá tu casilla de correo pronto para obtener el link de descarga'
 
 module.exports = React.createClass
   displayName: 'DataExportButton'
@@ -41,19 +57,19 @@ module.exports = React.createClass
         <Translate content={@props.buttonKey} />
       </button> {' '}
       <small className="form-help">
-        CSV format.{' '}
+        <Translate content="csv" />{' '}
         <PromiseRenderer promise={@exportGet()}>{([mostRecent]) =>
           if @recentAndReady(mostRecent)
             <span>
-              Most recent data available requested{' '}
+              <Translate content="mostRecent" />{' '}
               <a href={mostRecent.src}>{moment(mostRecent.updated_at).fromNow()}</a>.
             </span>
           else if @pending(mostRecent)
             <span>
-              Processing your request.
+              <Translate content="processing" />
             </span>
           else
-            <span>Never requested.</span>
+            <span><Translate content="never" /></span>
         }</PromiseRenderer>
         <br />
       </small>
@@ -62,6 +78,6 @@ module.exports = React.createClass
          <div className="form-help error">{@state.exportError.toString()}</div>
        else if @state.exportRequested
          <div className="form-help success">
-           We’ve received your request, check your email for a link to your data soon!
+           <Translate content="received" />
          </div>}
     </div>

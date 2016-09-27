@@ -11,30 +11,7 @@ apiClient = window.api = require 'panoptes-client/lib/api-client'
 {sugarClient} = require 'panoptes-client/lib/sugar'
 LoadingIndicator = require '../../components/loading-indicator'
 PotentialFieldGuide = require './potential-field-guide'
-
-counterpart.registerTranslations 'en',
-  project:
-    loading: 'Loading project'
-    disclaimer: "This project has been built using the Zooniverse Project Builder but is not yet an official Zooniverse project. Queries and issues relating to this project directed at the Zooniverse Team may not receive any response."
-  nav:
-    research: 'Research'
-    results: 'Results'
-    classify: 'Classify'
-    faq: 'FAQ'
-    education: 'Education'
-    talk: 'Talk'
-
-counterpart.registerTranslations 'es',
-  project:
-    loading: 'Cargando proyecto'
-    disclaimer: "This project has been built using the Zooniverse Project Builder but is not yet an official Zooniverse project. Queries and issues relating to this project directed at the Zooniverse Team may not receive any response."
-  nav:
-    research: 'Investigación'
-    results: 'Resultados'
-    classify: 'Clasificar'
-    faq: 'FAQ'
-    education: 'Educación'
-    talk: 'Discusión'      
+  
 
 SOCIAL_ICONS =
   'bitbucket.com/': 'bitbucket'
@@ -51,6 +28,30 @@ SOCIAL_ICONS =
   'youtu.be/': 'youtube'
   'youtube.com/': 'youtube'
 
+
+counterpart.registerTranslations 'en',
+  project:
+    loading: 'Loading project'
+    disclaimer: 'This project has been built using the Zooniverse Project Builder but is not yet an official Zooniverse project. Queries and issues relating to this project directed at the Zooniverse Team may not receive any response.'
+  nav:
+    research: 'Research'
+    results: 'Results'
+    classify: 'Classify'
+    faq: 'FAQ'
+    education: 'Education'
+    talk: 'Talk'
+
+counterpart.registerTranslations 'es',
+  project:
+    loading: 'Cargando proyecto'
+    disclaimer: 'what'
+  nav:
+    research: 'Investigación'
+    results: 'Resultados'
+    classify: 'Clasificar'
+    faq: 'FAQ'
+    education: 'Educación'
+    talk: 'Discusión'   
 
 ProjectAvatar = React.createClass
   displayName: 'ProjectAvatar'
@@ -156,8 +157,8 @@ ProjectPage = React.createClass
           {React.cloneElement(@props.children, {owner: owner, project: @props.project, user: @props.user})}
 
           {unless @props.project.launch_approved or @props.project.beta_approved
-            <Translate className="project-disclaimer" content="project.disclaimer" component="p" />}
-
+            #<Translate className="project-disclaimer" content="project.disclaimer" component="p" />
+            }
           <PotentialFieldGuide project={@props.project} />
         </div>
       }</PromiseRenderer>

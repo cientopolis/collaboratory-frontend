@@ -1,6 +1,20 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 alert = require '../lib/alert'
 LoginDialog = require './login-dialog'
+
+counterpart.registerTranslations 'en',
+  note: '''Signing in allows you to participate in discussions, allows us to give you credit for your work, and helps the science team make the best use of the data you provide.'''
+  no: 'No, thanks'
+  signIn: 'Sign in'
+  register: 'Register'
+
+counterpart.registerTranslations 'es',
+  note: '''Ingresar te permite participar en los foros de discusión, obtener crédito por tu trabajo, y ayuda al equipo de investigación a utilizar de la mejor manera la información que les provees.'''
+  no: 'No, gracias'
+  signIn: 'Ingresar'
+  register: 'Registrarse'
 
 module.exports = React.createClass
   displayName: 'SignInPrompt'
@@ -12,14 +26,14 @@ module.exports = React.createClass
   render: ->
     <div className="content-container">
       {@props.children}
-      <p>Signing in allows you to participate in discussions, allows us to give you credit for your work, and helps the science team make the best use of the data you provide.</p>
+      <p><Translate content="note" /></p>
       <p className="columns-container spread inline">
         <span>
-          <button type="button" className="minor-button" onClick={@dismiss}>No thanks</button>
+          <button type="button" className="minor-button" onClick={@dismiss}><Translate content="no" /></button>
         </span>
         <span>
-          <button type="button" className="standard-button" autoFocus onClick={@signIn}>Sign in</button>{' '}
-          <button type="button" className="standard-button" onClick={@register}>Register</button>
+          <button type="button" className="standard-button" autoFocus onClick={@signIn}><Translate content="signIn" /></button>{' '}
+          <button type="button" className="standard-button" onClick={@register}><Translate content="register" /></button>
         </span>
       </p>
     </div>

@@ -17,9 +17,9 @@ counterpart.registerTranslations 'es',
   resource:
     name: 'Nombre'
     warn:
-      changing: 'You’re changing the url of your '
-      noLongerWork: '. Users with bookmarks and links in talk will no longer work. '
-      undo: 'Undo'      
+      changing: 'Estás cambiando la URL de tu '
+      noLongerWork: '. Usuarios con marcadores y links en los foros dejarán de funcionar. '
+      undo: 'Deshacer'      
 
 module.exports = React.createClass
   displayName: "DisplayNameSlugEditor"
@@ -59,7 +59,7 @@ module.exports = React.createClass
       <PromiseRenderer promise={@resourceURL()} pending={null}>{(url) =>
         <small className="form-help">
           {if @props.resource.live
-            "You cannot change a live #{@props.resourceType}'s name."
+            "No es posible cambiar el nombre de un #{@props.resourceType} en vivo."
           else
             "El nombre del #{@props.resourceType} es lo primero que los usuarios van a ver sobre el #{@props.resourceType}, y aparecerá en la URL del mismo. Lo mejor es que sea breve y conciso."}
         </small>

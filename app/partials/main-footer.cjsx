@@ -45,12 +45,12 @@ counterpart.registerTranslations 'es',
       projectBuilderPolicies: 'Políticas de construcción'
     about:
       title: 'About'
-      aboutUs: 'About Us'
-      ourTeam: 'Our Team'
-      education: 'Education'
-      publications: 'Publications'
+      aboutUs: 'Sobre nosotros'
+      ourTeam: 'Nuestro equipo'
+      education: 'Educación'
+      publications: 'Publicaciones'
     talk:
-      title: 'Talk'
+      title: 'Discusión'
       zooTalk: 'Zooniverse Talk'
       daily: 'Daily Zooniverse'
       blog: 'Blog'
