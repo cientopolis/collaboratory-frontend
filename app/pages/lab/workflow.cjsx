@@ -259,7 +259,7 @@ EditWorkflowPage = React.createClass
                     </Translate>
                   </AutoSave>{' '}
                   <AutoSave resource={@props.workflow}>
-                    <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'single'} attributes={{title: "content.tasks.drawing.text" }} required>
+                    <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'drawing'} attributes={{title: "content.tasks.drawing.text" }} required>
                         <i className="fa fa-pencil fa-2x"></i>
                         <br />
                         <small><strong><Translate content="content.tasks.drawing.label" /></strong></small>
@@ -267,7 +267,7 @@ EditWorkflowPage = React.createClass
                   </AutoSave>{' '}
                   {if @canUseTask(@props.project, "text")
                     <AutoSave resource={@props.workflow}>
-                     <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'single'} attributes={{title: "content.tasks.text.text" }} required>
+                     <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'text'} attributes={{title: "content.tasks.text.text" }} required>
                           <i className="fa fa-file-text-o fa-2x"></i>
                           <br />
                           <small><strong><Translate content="content.tasks.text.label" /></strong></small>
@@ -275,7 +275,7 @@ EditWorkflowPage = React.createClass
                     </AutoSave>}{' '}
                   {if @canUseTask(@props.project, "survey")
                     <AutoSave resource={@props.workflow}>
-                      <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'single'} attributes={{title: "content.tasks.survey.text" }} required>
+                      <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'survey'} attributes={{title: "content.tasks.survey.text" }} required>
                           <i className="fa fa-binoculars fa-2x"></i>
                           <br />
                           <small><strong><Translate content="content.tasks.survey.label" /></strong></small>
@@ -283,7 +283,7 @@ EditWorkflowPage = React.createClass
                     </AutoSave>}{' '}
                   {if @canUseTask(@props.project, "crop")
                     <AutoSave resource={@props.workflow}>
-                      <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'single'} attributes={{title: "content.tasks.crop.text" }} required>
+                      <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'crop'} attributes={{title: "content.tasks.crop.text" }} required>
                           <i className="fa fa-crop fa-2x"></i>
                           <br />
                           <small><strong><Translate content="content.tasks.crop.label" /></strong></small>
@@ -291,7 +291,7 @@ EditWorkflowPage = React.createClass
                     </AutoSave>}{' '}
                   {if @canUseTask(@props.project, "dropdown")
                       <AutoSave resource={@props.workflow}>
-                        <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'single'} attributes={{title: "content.tasks.dropdown.text" }} required>
+                        <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'dropdown'} attributes={{title: "content.tasks.dropdown.text" }} required>
                             <i className="fa fa-list fa-2x"></i>
                             <br />
                             <small><strong><Translate content="content.tasks.dropdown.label" /></strong></small>
@@ -299,7 +299,7 @@ EditWorkflowPage = React.createClass
                       </AutoSave>}{' '}
                   {if @canUseTask(@props.project, "combo")
                     <AutoSave resource={@props.workflow}>
-                      <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'single'} attributes={{title: "content.tasks.combo.text" }} required>
+                      <Translate component="button" type="submit" className="minor-button" onClick={@addNewTask.bind this, 'combo'} attributes={{title: "content.tasks.combo.text" }} required>
                           <i className="fa fa-cubes fa-2x"></i>
                           <br />
                           <small><strong><Translate content="content.tasks.combo.label" /></strong></small>
