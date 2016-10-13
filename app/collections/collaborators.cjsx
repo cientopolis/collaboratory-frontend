@@ -6,7 +6,7 @@ apiClient = require 'panoptes-client/lib/api-client'
 counterpart = require 'counterpart'
 CollectionRole = require '../lib/collection-role'
 PromiseRenderer = require '../components/promise-renderer'
-{Translate} = require 'react-translate-component'
+Translate = require 'react-translate-component'
 
 ID_PREFIX = 'COLLECTION_COLLABORATORS_PAGE_'
 

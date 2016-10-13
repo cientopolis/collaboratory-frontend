@@ -1,9 +1,53 @@
 React = require 'react'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
 talkClient = require 'panoptes-client/lib/talk-client'
 AutoSave = require '../../components/auto-save'
 PromiseRenderer = require '../../components/promise-renderer'
 ChangeListener = require '../../components/change-listener'
 handleInputChange = require '../../lib/handle-input-change'
+
+counterpart.registerTranslations 'en',
+  address:
+    label: 'Email address'
+  preferences:
+    label: 'Zooniverse email preferences'
+    general: 'Get general Zooniverse email updates'
+    projects: 'Get email updates from the Projects you classify on'
+    beta: 'Get beta project email updates'
+  talk:
+    label: 'Talk email preferences'
+    th:
+      sendMe: 'Send me an email'
+      now: 'Immediately'
+      daily: 'Daily'
+      weekly: 'Weekly'
+      never: 'Never'
+  project:
+    label: 'Project email preferences'
+    project: 'Project'
+    page: 'Page'
+
+counterpart.registerTranslations 'es',
+  address:
+    label: 'Dirección de correo electrónico'
+  preferences:
+    label: 'Preferencias de email de Zooniverse'
+    general: 'Recibir mails en general sobre actualizaciones en Zooniverse'
+    projects: 'Recibir mails sobre actualizaciones en proyectos en los que participes'
+    beta: 'Recibir mails sobre actualizaciones en proyectos en estado beta'
+  talk:
+    label: 'Preferencias de email para los foros de discusión'
+    th:
+      sendMe: 'Enviarme un email'
+      now: 'Inmediatamente'
+      daily: 'Diariamente'
+      weekly: 'Semanalmente'
+      never: 'Nunca'
+  project:
+    label: 'Project email preferences'
+    project: 'Project'
+    page: 'Page '    
 
 module.exports = React.createClass
   displayName: 'EmailSettingsPage'
@@ -45,44 +89,44 @@ module.exports = React.createClass
     <div className="content-container">
       <p>
         <AutoSave resource={@props.user}>
-          <span className="form-label">Email address</span>
+          <span className="form-label"><Translate content="address.label" /></span>
           <br />
           <input type="text" className="standard-input full" name="email" value={@props.user.email} onChange={handleInputChange.bind @props.user} />
         </AutoSave>
       </p>
-      <p><strong>Zooniverse email preferences</strong></p>
+      <p><strong><Translate content="preferences.label" /></strong></p>
       <p>
         <AutoSave resource={@props.user}>
           <label>
             <input type="checkbox" name="global_email_communication" checked={@props.user.global_email_communication} onChange={handleInputChange.bind @props.user} />{' '}
-            Get general Zooniverse email updates
+            <Translate content="preferences.general" />
           </label>
         </AutoSave>
         <br />
         <AutoSave resource={@props.user}>
           <label>
             <input type="checkbox" name="project_email_communication" checked={@props.user.project_email_communication} onChange={handleInputChange.bind @props.user} />{' '}
-            Get email updates from the Projects you classify on
+            <Translate content="preferences.projects" />
           </label>
         </AutoSave>
         <br />
         <AutoSave resource={@props.user}>
           <label>
             <input type="checkbox" name="beta_email_communication" checked={@props.user.beta_email_communication} onChange={handleInputChange.bind @props.user} />{' '}
-            Get beta project email updates
+            <Translate content="preferences.beta" />
           </label>
         </AutoSave>
       </p>
 
-      <p><strong>Talk email preferences</strong></p>
+      <p><strong><Translate content="talk.label" /></strong></p>
       <table className="talk-email-preferences">
         <thead>
           <tr>
-            <th>Send me an email</th>
-            <th>Immediately</th>
-            <th>Daily</th>
-            <th>Weekly</th>
-            <th>Never</th>
+            <th><Translate content="talk.th.sendMe" /></th>
+            <th><Translate content="talk.th.now" /></th>
+            <th><Translate content="talk.th.daily" /></th>
+            <th><Translate content="talk.th.weekly" /></th>
+            <th><Translate content="talk.th.never" /></th>
           </tr>
         </thead>
         <PromiseRenderer promise={talkClient.type('subscription_preferences').get()} pending={-> <tbody></tbody>} then={(preferences) =>
@@ -102,12 +146,12 @@ module.exports = React.createClass
         } />
       </table>
 
-      <p><strong>Project email preferences</strong></p>
+      <p><strong><Translate content="project.label" /></strong></p>
       <table>
         <thead>
           <tr>
             <th><i className="fa fa-envelope-o fa-fw"></i></th>
-            <th>Project</th>
+            <th><Translate content="project.project" /></th>
           </tr>
         </thead>
         <PromiseRenderer promise={@props.user.get 'project_preferences', page: @state.page} pending={=> <tbody></tbody>} then={(projectPreferences) =>
@@ -126,7 +170,7 @@ module.exports = React.createClass
               <td colSpan="2">
                 {if meta?
                   <nav className="pagination">
-                    Page <select value={@state.page} disabled={meta.page_count < 2} onChange={(e) => @setState page: e.target.value}>
+                    <Translate content="project.page" /><select value={@state.page} disabled={meta.page_count < 2} onChange={(e) => @setState page: e.target.value}>
                       {for p in [1..meta.page_count]
                         <option key={p} value={p}>{p}</option>}
                     </select> of {meta.page_count || '?'}

@@ -1,8 +1,35 @@
 React = require 'react'
+counterpart = require 'counterpart'
+Translate = require 'react-translate-component'
 PromiseRenderer = require '../../components/promise-renderer'
 ImageSelector = require '../../components/image-selector'
 apiClient = require 'panoptes-client/lib/api-client'
 putFile = require '../../lib/put-file'
+
+counterpart.registerTranslations 'en',
+  avatar:
+    change: 'Change avatar'
+    note: 'Drop an image here (square, less than '
+    clickArea: 'Drop an image here (or click to select).'
+    clear: 'Clear avatar'
+  header:
+    change: 'Change profile header'
+    note: 'Drop an image here (any dimensions, less than '
+    clickArea: 'Drop an image here (or click to select).'    
+    clear: 'Clear header'
+
+counterpart.registerTranslations 'es',
+  avatar:
+    change: 'Cambiar avatar'
+    note: 'Arrastrá y soltá una imagen aquí (cuadrada, menor que '
+    clickArea: 'Arrastrá y soltá una imagen aquí (o hacé click para seleccionar una).'
+    clear: 'Remover avatar'
+  header:
+    change: 'Cambiar foto de encabezado'
+    note: 'Arrastrá y soltá una imagen aquí (cualquier dimensión, menor que '
+    clickArea: 'Arrastrá y soltá una imagen aquí (o hacé click para seleccionar una).'    
+    clear: 'Remover encabezado'    
+
 
 MAX_AVATAR_SIZE = 65536
 MAX_HEADER_SIZE = 256000
@@ -31,16 +58,16 @@ module.exports = React.createClass
 
     <div>
       <div className="content-container">
-        <h3>Change avatar</h3>
+        <h3><Translate content="avatar.change" /></h3>
         <PromiseRenderer promise={@avatarGet}>{(avatar) =>
-          placeholder = <p className="content-container">Drop an image here (or click to select).</p>
+          placeholder = <p className="content-container"><Translate content="avatar.clickArea" /></p>
           <div>
-            <p className="form-help">Drop an image here (square, less than {Math.floor MAX_AVATAR_SIZE / 1000} KB)</p>
+            <p className="form-help"><Translate content="avatar.note" />{Math.floor MAX_AVATAR_SIZE / 1000} KB)</p>
             <div style={width: '20vw'}>
               <ImageSelector maxSize={MAX_AVATAR_SIZE} ratio={1} src={avatar?.src} placeholder={placeholder} onChange={@handleMediaChange.bind(this, 'avatar')} />
             </div>
             <div>
-              <button type="button" disabled={avatar is null} onClick={@handleMediaClear.bind(this, 'avatar')}>Clear avatar</button>
+              <button type="button" disabled={avatar is null} onClick={@handleMediaClear.bind(this, 'avatar')}><Translate content="avatar.clear" /></button>
             </div>
           </div>
         }</PromiseRenderer>
@@ -49,16 +76,16 @@ module.exports = React.createClass
       </div>
       <hr />
       <div className="content-container">
-        <h3>Change profile header</h3>
+        <h3><Translate content="header.change" /></h3>
         <PromiseRenderer promise={@profile_headerGet}>{(header) =>
-          placeholder = <p className="content-container">Drop an image here (or click to select).</p>
+          placeholder = <p className="content-container"><Translate content="header.clickArea" /></p>
           <div>
-            <p className="form-help">Drop an image here (any dimensions, less than {Math.floor MAX_HEADER_SIZE / 1000} KB)</p>
+            <p className="form-help"><Translate content="header.note" />{Math.floor MAX_HEADER_SIZE / 1000} KB)</p>
             <div style={width: '40vw'}>
               <ImageSelector maxSize={MAX_HEADER_SIZE} src={header?.src} placeholder={placeholder} onChange={@handleMediaChange.bind(this, 'profile_header')} />
             </div>
             <div>
-              <button type="button" disabled={header is null} onClick={@handleMediaClear.bind(this, 'profile_header')}>Clear header</button>
+              <button type="button" disabled={header is null} onClick={@handleMediaClear.bind(this, 'profile_header')}><Translate content="header.clear" /></button>
             </div>
           </div>
         }</PromiseRenderer>

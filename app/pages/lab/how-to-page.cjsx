@@ -273,7 +273,7 @@ counterpart.registerTranslations 'es',
       como ejemplo.
       Podés explorar el [proyecto real](http://ec2-52-196-4-55.ap-northeast-1.compute.amazonaws.com/projects/investigador/recorriendo-la-plata).
 
-      [![Kitteh Zoo screenshot](./assets/how-to-lab/how-to-1.jpg)](./assets/how-to-lab/how-to-1.jpg)
+      [![Kitteh Zoo screenshot](./assets/how-to-lab/howTo1Es.png)](./assets/how-to-lab/howTo1Es.png)
 
       ### Empezando
 
@@ -281,14 +281,14 @@ counterpart.registerTranslations 'es',
       en Cientópolis. Aquí también se pueden ver todos los proyectos que vayas a crear, como así también los
       proyectos en los que colabores. Para crear un proyecto, clickear en el botón "Crear un proyecto".
 
-      [![Project Builder screenshot](./assets/how-to-lab/how-to-2.jpg)](./assets/how-to-lab/how-to-2.jpg)
+      [![Project Builder screenshot](./assets/how-to-lab/howTo2Es.png)](./assets/how-to-lab/howTo2Es.png)
 
 
       **Empezar con la creación:** Ahora ya estás en la página de creación misma. Sobre el sector izquierdo
       están los menúes principales: **Proyecto**, **Flujos de Trabajo** y **Conjuntos de análisis**.
       Esta es terminología que vas a ver a menudo, y tienen significados específicos en el contexto de esta plataforma. **Proyecto** es bastante claro; Recorriendo La Plata sería un proyecto, y representa al proyecto de investigación del mundo real con el cual estás colaborando. Un **flujo de trabajo** representa el conjunto de tareas que los voluntarios del proyecto tiene que realizar, usualmente en forma de preguntas. Un **conjunto de análisis** es un conjunto de cosas (usualmente son imágenes) sobre las que los voluntarios realizan las tareas mencionadas anteriormente.
 
-      [![Project details editor screenshot](./assets/how-to-lab/how-to-3.jpg)](./assets/how-to-lab/how-to-3.jpg)
+      [![Project details editor screenshot](./assets/how-to-lab/howTo3Es.png)](./assets/how-to-lab/howTo3Es.png)
 
 
       ### Definiendo tu proyecto
@@ -299,15 +299,15 @@ counterpart.registerTranslations 'es',
 
       Aquí es donde se definen las tareas que van a realizar los voluntarios. La primera vez que visites esta página, verás que ya hay una pregunta de ejemplo ya configurada.
 
-      [![Project workflow editor screenshot](./assets/how-to-lab/how-to-4.jpg)](./assets/how-to-lab/how-to-4.jpg)
+      [![Project workflow editor screenshot](./assets/how-to-lab/howTo4Es.png)](./assets/how-to-lab/howTo4Es.png)
 
       Queremos crear lo siguiente:
 
-      [![Project workflow example](./assets/how-to-lab/how-to-5.jpg)](./assets/how-to-lab/how-to-5.jpg)
+      [![Project workflow example](./assets/how-to-lab/howTo5Es.png)](./assets/how-to-lab/howTo5Es.png)
 
       Empezamos reemplazando el texto de ejemplo con nuestra pregunta, que en nuestro caso pregunta a los voluntarios si pueden identificar un edificio representativo de La Plata. Podemos agregar más preguntas con el botón "+" debajo de la respuesta "Sí" que viene por defecto. Utilizá la captura de pantalla de abajo a modo de guía.
 
-      [![Project workflow editing screenshot](./assets/how-to-lab/how-to-6.jpg)](./assets/how-to-lab/how-to-6.jpg)
+      [![Project workflow editing screenshot](./assets/how-to-lab/howTo6Es.png)](./assets/how-to-lab/howTo6Es.png)
 
       Agregamos tanto texto como imágenes en el recuadro de _Texto de Ayuda_ utilizando el lenguaje _Markdown_ ([más información sobre markdown](http://markdownlivepreview.com))
 
@@ -330,14 +330,14 @@ counterpart.registerTranslations 'es',
 
       Ahora queremos dibujar un recuadro alrededor del edificio que encontramos. ¿Por qué? Porque sí, porque podemos. (En realidad, es a modo de ejemplo. En un proyecto real hay que pensar cuidadosamente las tareas que pedimos a los voluntarios)
 
-      [![Project workflow task editing screenshot](./assets/how-to-lab/how-to-7.jpg)](./assets/how-to-lab/how-to-7.jpg)
+      [![Project workflow task editing screenshot](./assets/how-to-lab/howTo7Es.png)](./assets/how-to-lab/howTo7Es.png)
 
       Entonces, debajo de la lista _Tareas_, clickeamos en "Agregar tarea", y luego en "Dibujo". Vamos a pedir a los voluntarios que dibujen (con rectángulos) la parte principal del edificio que vean. Como en las tareas del otro tipo, el texto principal provee instrucciones básicas en lo que queremos que el voluntario haga, y luego extendemos un poco en la sección de "Texto de ayuda".
 
       En adición al rectángulo marcado, queremos que el voluntario nos diga qué tanto les gusta el edificio en términos de arquitectura (otra vez, esta pregunta carece de sentido en un contexto de proyecto real; esto es solamente como ejemplo). Así, cada vez que un voluntario marque el edificio con un rectángulo, a continuación agregamos una pregunta estilo pop-up que pregunte lo mencionado. Para agregar esta pregunta, hacer click en el botón _sub-tareas_ debajo de las especificaciones de _Tipo_ y _Color_.
 
 
-      [![Project workflow task details editing screenshot](./assets/how-to-lab/how-to-8.jpg)](./assets/how-to-lab/how-to-8.jpg)
+      [![Project workflow task details editing screenshot](./assets/how-to-lab/howTo8Es.png)](./assets/how-to-lab/howTo8Es.png)
 
       Al crear tu propio proyecto, podés combinar cualquier cantidad de tareas en cualquier orden. Podés empezar con una tarea de dibujo en lugar de una pregunta. También podés agregar sub-tareas para cualquiera de las tareas de dibujo que agregues.
 
@@ -350,7 +350,7 @@ counterpart.registerTranslations 'es',
 
       La primera pregunta, "¿Ves un edificio representativo de la ciudad de La Plata?", permite tres tipos de respuestas: 'Sí', 'No', y 'No estoy seguro'. Si el usuario elige cualquiera de las dos últimas, entonces se termina la clasificación de esta imagen. En cambio, si elige 'Sí', entonces tenemos que pasar a la tarea de dibujo/marcado.
 
-      [![Project workflow task editing screenshot](./assets/how-to-lab/how-to-9.jpg)](./assets/how-to-lab/how-to-9.jpg)
+      [![Project workflow task editing screenshot](./assets/how-to-lab/howTo9Es.png)](./assets/how-to-lab/howTo9Es.png)
 
       ### Subir elementos de análisis
 
@@ -369,7 +369,7 @@ counterpart.registerTranslations 'es',
 
       ¡Creaste satisfactoriamente el proyecto! Para verlo, podés volver a la página de "Construya un proyecto" en el panel de navegación de arriba, y luego clickear en el botón "Ver" junto al proyecto que creaste recién.
 
-      [![Project list screenshot](./assets/how-to-lab/how-to-11.jpg)](./assets/how-to-lab/how-to-11.jpg)
+      [![Project list screenshot](./assets/how-to-lab/howTo11Es.png)](./assets/how-to-lab/howTo11Es.png)
 
 
       ### Manual de creación de proyectos – DETALLES
@@ -427,7 +427,7 @@ counterpart.registerTranslations 'es',
 
       _Investigación, resultados, preguntas frecuentes y educación_: Estas son las secciones donde podés compartir todos los detalles en profundidad sobre tu proyecto. Todas permiten el uso de Markdown para dar formato al texto y para mostrar imágenes.
 
-      [![Project additional content editor screenshot](./assets/how-to-lab/how-to-12.jpg)](./assets/how-to-lab/how-to-12.jpg)
+      [![Project additional content editor screenshot](./assets/how-to-lab/howTo12Es.png)](./assets/how-to-lab/howTo12Es.png)
 
       _Investigación_: Explicá los detalles de tu proyecto de investigación con todo el lujo de detalle que desees. Explicar la motivación del proyecto y los objetivos del mismo a los voluntarios, puede ser crítico para el éxito del proyecto.
 
@@ -453,7 +453,7 @@ counterpart.registerTranslations 'es',
 
       Sumá gente a tu equipo y especificá cuáles son sus roles para que así tengan acceso a las herramientas que necesitan (incluyendo acceso al proyecto antes de que esté listo).
 
-      [![Project collaborator editor screenshot](./assets/how-to-lab/how-to-13.jpg)](./assets/how-to-lab/how-to-13.jpg)
+      [![Project collaborator editor screenshot](./assets/how-to-lab/howTo13Es.png)](./assets/how-to-lab/howTo13Es.png)
 
 
       _Dueño_: Es el creador original del proyecto, por lo que sólo uno puede existir.

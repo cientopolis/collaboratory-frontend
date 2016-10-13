@@ -44,7 +44,7 @@ counterpart.registerTranslations 'en',
 counterpart.registerTranslations 'es',
   project:
     loading: 'Cargando proyecto'
-    disclaimer: 'what'
+    disclaimer: ''
   nav:
     research: 'Investigación'
     results: 'Resultados'
