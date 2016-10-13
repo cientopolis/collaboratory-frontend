@@ -1,4 +1,6 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 {Markdown} = require 'markdownz'
 HandlePropChanges = require '../../lib/handle-prop-changes'
 PromiseToSetState = require '../../lib/promise-to-set-state'
@@ -6,6 +8,20 @@ PromiseRenderer = require '../../components/promise-renderer'
 FinishedBanner = require './finished-banner'
 ProjectMetadata = require './metadata'
 {Link} = require 'react-router'
+
+counterpart.registerTranslations 'en',
+  visit:
+    visit: 'Visit the project'
+    at: 'at '
+  getStarted: 'Get started!'
+  about: 'About '
+
+counterpart.registerTranslations 'es',
+  visit:
+    visit: 'Vistá el proyecto'
+    at: 'en '
+  getStarted: '¡Sé parte ahora!'  
+  about: 'Sobre '
 
 module.exports = React.createClass
   displayName: 'ProjectHomePage'
@@ -41,8 +57,8 @@ module.exports = React.createClass
 
         {if @props.project.redirect
           <a href={@props.project.redirect} className="call-to-action standard-button">
-            <strong>Visit the project</strong><br />
-            <small>at {@props.project.redirect}</small>
+            <strong><Translate content="visit.visit" /></strong><br />
+            <small><Translate content="visit.at" /> {@props.project.redirect}</small>
           </a>
         else if @props.project.configuration?.user_chooses_workflow
           for workflow in @state.workflows
@@ -51,13 +67,13 @@ module.exports = React.createClass
             </Link>
         else
           <Link to={"/projects/#{owner}/#{name}/classify"} className="call-to-action standard-button">
-            Get started!
+            <Translate content="getStarted" />
           </Link>}
       </div>
 
       <hr />
       <div className="introduction content-container">
-        <h3 className="about-project">About {@props.project.display_name}</h3>
+        <h3 className="about-project"><Translate content="about" /> {@props.project.display_name}</h3>
         <Markdown project={@props.project}>{@props.project.introduction ? ''}</Markdown>
       </div>
 

@@ -38,7 +38,7 @@ module.exports = React.createClass
 
   imagePromise: (project) ->
     src = if project.avatar_src
-      "#{ project.avatar_src }"
+      "https://colaboratory.s3.amazonaws.com/#{ project.avatar_src }"
     else
       './assets/simple-avatar.jpg'
     Promise.resolve src

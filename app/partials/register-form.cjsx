@@ -22,6 +22,8 @@ counterpart.registerTranslations 'en',
     passwordTooShort: 'Must be at least 8 characters'
     confirmPassword: 'Confirm password'
     passwordsDontMatch: 'These don’t match'
+    passLooksGood: 'Looks good'
+    emailLooksGood: 'Looks good'
     email: 'Email address'
     emailConflict: 'An account with this address already exists'
     realName: 'Real name'
@@ -46,6 +48,8 @@ counterpart.registerTranslations 'es',
     passwordTooShort: 'Debe ser de al menos 8 caracteres de longitud'
     confirmPassword: 'Confirmar contraseña'
     passwordsDontMatch: 'Las contraseñas no coinciden'
+    passLooksGood: 'OK'
+    emailLooksGood: 'OK'
     email: 'Dirección de correo electrónico'
     emailConflict: 'Una cuenta con esta dirección de correo ya existe'
     realName: 'Nombre real'
@@ -121,7 +125,7 @@ module.exports = React.createClass
             if passwordsDontMatch
               <Translate className="form-help error" content="registerForm.passwordsDontMatch" />
             else if not passwordTooShort
-              <Translate className="form-help success" content="registerForm.looksGood" />}
+              <Translate className="form-help success" content="registerForm.passLooksGood" />}
         </span>
         <input type="password" ref="confirmedPassword" className="standard-input full" disabled={@state.props?} onChange={@handlePasswordChange} />
       </label>
@@ -142,7 +146,7 @@ module.exports = React.createClass
                 </a>
               </span>
             else
-              <Translate className="form-help success" content="registerForm.looksGood" />
+              <Translate className="form-help success" content="registerForm.emailLooksGood" />
           else
             <Translate className="form-help info" content="registerForm.required" />}
         </span>
@@ -206,7 +210,7 @@ module.exports = React.createClass
     name = @refs.name.value
 
     exists = name.length isnt 0
-    badChars = (char for char in name.split('') when char.match(/[\w\-\']/) is null)
+    badChars = (char for char in name.split('') when char.match(/[\w\-\.\ \']/) is null)
 
     @setState
       badNameChars: badChars

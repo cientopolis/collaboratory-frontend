@@ -15,6 +15,17 @@ counterpart.registerTranslations 'en',
       careers: 'Careers'
       contact: 'Contact Us'
 
+counterpart.registerTranslations 'es',
+  about:
+    title: 'Sobre nosotros'
+    nav:
+      about: 'Sobre nosotros'
+      publications: 'Publicaciones'
+      ourTeam: 'Nuestro equipo'
+      education: 'Educación'
+      careers: 'Carreras'
+      contact: 'Contáctanos'      
+
 module.exports = React.createClass
   displayName: 'AboutPage'
 

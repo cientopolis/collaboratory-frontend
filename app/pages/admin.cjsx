@@ -10,6 +10,18 @@ counterpart.registerTranslations 'en',
     nav:
       createAdmin: "Manage Users"
       projectStatus: "Set Project Status"
+    notAdmin: "You are not an administrator"
+    notSignedIn: "You're not signed in"
+
+counterpart.registerTranslations 'es',
+  userAdminPage:
+    header: "Administrador"
+    nav:
+      createAdmin: "Administrar usuarios"
+      projectStatus: "Cambiar el estado de un proyecto"      
+    notAdmin: "No tenés permisos de administrador"
+    notSignedIn: "No iniciaste sesión"
+
 
 AdminPage = React.createClass
   displayName: 'AdminPage'
@@ -53,11 +65,11 @@ module.exports = React.createClass
             <AdminPage {...@props} />
           else
             <div className="content-container">
-              <p>You are not an administrator</p>
+              <p><Translate content="userAdminPage.notAdmin" /></p>
             </div>
         else
           <div className="content-container">
-            <p>You’re not signed in.</p>
+            <p><Translate content="userAdminPage.notSignedIn" /></p>
           </div>
       }</ChangeListener>
     </div>

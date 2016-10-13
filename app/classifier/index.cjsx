@@ -1,4 +1,6 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 apiClient = require 'panoptes-client/lib/api-client'
 testClassificationQuality = require '../lib/test-classification-quality'
 ChangeListener = require '../components/change-listener'
@@ -16,6 +18,58 @@ isAdmin = require '../lib/is-admin'
 Tutorial = require '../lib/tutorial'
 workflowAllowsFlipbook = require '../lib/workflow-allows-flipbook'
 workflowAllowsSeparateFrames = require '../lib/workflow-allows-separate-frames'
+
+counterpart.registerTranslations 'en',
+  done: 'Done'
+  talk: 'Talk'
+  next: 'Next'
+  tutorial: '''Show the project's tutorial'''
+  demo: 
+    label: 'Demo mode:'
+    note: 'In demo mode, classifications' 
+    note2: 'will not be saved.'
+    note3: '''Use this for quick, inaccurate demos of the classification interface.'''
+  noClassi: 'No classifications are being recorded.'
+  disable: 'Disable'
+  expert:
+    available: 'Expert classification available.'
+    match: 'Looks like you matched about '
+    keep: 'Keep at it, all classifications are useful!'
+    work: 'Keep up the good work!'
+  hide: 'Hide'
+  show: 'Show'
+  goldMode: 
+    label: 'Gold standard mode'
+    description: '''A “gold standard” classification is one that is known to be completely accurate. We’ll compare other classifications against it during aggregation.'''
+    pleaseSure: 'Please ensure this classification is completely accurate.'
+  classi:
+    expert: 'Expert classification:'
+    yours: 'Your classification'
+
+counterpart.registerTranslations 'es',
+  done: 'Listo'
+  talk: 'Discusión'
+  next: 'Siguiente'
+  tutorial: '''Ver el tutorial del proyecto'''
+  demo: 
+    label: 'Modo de pruebas:'
+    note: 'En el modo de pruebas, las clasificaciones' 
+    note2: 'no se guardarán.'
+    note3: '''Usá esto para pruebas rápidas de la interfaz de clasificación.'''
+  noClassi: 'No se están guardando las clasificaciones.'
+  disable: 'Desactivar'
+  expert:
+    available: 'Clasifiación experta disponible.'
+    match: 'Al parecer acertaste sobre '
+    keep: '¡Seguí así, todas las clasificaciones son útiles!'
+    work: '¡Continuá con el buen trabajo!'
+  hide: 'Ocultar'
+  show: 'Mostrar'  
+  goldMode: 
+    label: 'Modo estándar oro'
+    description: '''Una clasificación "estándar oro" es aquella que se sabe que es completamente correcta. Vamos a comparar otras clasificaciones contra ésta durando el proceso de agregación'''
+    pleaseSure: 'Por favor, asegurate de que esta clasificación es completamente correcta.'
+
 
 PULSAR_HUNTERS_SLUG = 'zooniverse/pulsar-hunters'
 
@@ -127,7 +181,6 @@ Classifier = React.createClass
 
   renderTask: (classification, annotation, task) ->
     TaskComponent = tasks[task.type]
-
     # Should we disabled the "Back" button?
     onFirstAnnotation = classification.annotations.indexOf(annotation) is 0
 
@@ -153,7 +206,6 @@ Classifier = React.createClass
 
     <div className="task-container" style={disabledStyle if @state.subjectLoading}>
       <TaskComponent taskTypes={tasks} workflow={@props.workflow} task={task} annotation={annotation} onChange={@handleAnnotationChange.bind this, classification} />
-
       <hr />
 
       <nav className="task-nav">
@@ -161,7 +213,7 @@ Classifier = React.createClass
           <button type="button" className="back minor-button" disabled={onFirstAnnotation} onClick={@destroyCurrentAnnotation}>Back</button>}
         {if not nextTaskKey and @props.workflow.configuration?.hide_classification_summaries and @props.owner? and @props.project?
           [ownerName, name] = @props.project.slug.split('/')
-          <Link onClick={@completeClassification} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button" style={if waitingForAnswer then disabledStyle}>Done &amp; Talk</Link>}
+          <Link onClick={@completeClassification} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button" style={if waitingForAnswer then disabledStyle}><Translate content="done" /> &amp; <Translate content="talk" /></Link>}
         {if nextTaskKey
           <button type="button" className="continue major-button" disabled={waitingForAnswer} onClick={@addAnnotationForTask.bind this, classification, nextTaskKey}>Next</button>
         else
@@ -170,16 +222,16 @@ Classifier = React.createClass
               <i className="fa fa-trash fa-fw"></i>
             else if @props.classification.gold_standard
               <i className="fa fa-star fa-fw"></i>}
-            {' '}Done
+            {' '}<Translate content="done" />
           </button>}
         {@renderExpertOptions()}
       </nav>
-
+      
       <p>
         <small>
           <strong>
-            <TutorialButton className="minor-button" user={@props.user} project={@props.project} title="Project tutorial" aria-label="Show the project tutorial" style={marginTop: '2em'}>
-              Show the project tutorial
+            <TutorialButton className="minor-button" user={@props.user} project={@props.project} title="Project tutorial" aria-label="Show the project's tutorial" style={marginTop: '2em'}>
+              <Translate content="tutorial" />
             </TutorialButton>
           </strong>
         </small>
@@ -189,9 +241,9 @@ Classifier = React.createClass
         <p style={textAlign: 'center'}>
           <i className="fa fa-trash"></i>{' '}
           <small>
-            <strong>Demo mode:</strong>
+            <strong><Translate content="demo.label" /></strong>
             <br />
-            No classifications are being recorded.{' '}
+            <Translate content="noClassi" />{' '}
             <button type="button" className="secret-button" onClick={@props.onChangeDemoMode.bind null, false}>
               <u>Disable</u>
             </button>
@@ -201,11 +253,11 @@ Classifier = React.createClass
         <p style={textAlign: 'center'}>
           <i className="fa fa-star"></i>{' '}
           <small>
-            <strong>Gold standard mode:</strong>
+            <strong><Translate content="goldMode.label" />:</strong>
             <br />
-            Please ensure this classification is completely accurate.{' '}
+            <Translate content="goldMode.pleaseSure" />{' '}
             <button type="button" className="secret-button" onClick={@props.classification.update.bind @props.classification, gold_standard: undefined}>
-              <u>Disable</u>
+              <u><Translate content="disable" /></u>
             </button>
           </small>
         </p>}
@@ -245,27 +297,27 @@ Classifier = React.createClass
 
       else if @state.expertClassification?
         <div className="has-expert-classification">
-          Expert classification available.{' '}
+          <Translate content="expert.available" />{' '}
           {if @state.showingExpertClassification
-            <button type="button" onClick={@toggleExpertClassification.bind this, false}>Hide</button>
+            <button type="button" onClick={@toggleExpertClassification.bind this, false}><Translate content="hide" /></button>
           else
-            <button type="button" onClick={@toggleExpertClassification.bind this, true}>Show</button>}
+            <button type="button" onClick={@toggleExpertClassification.bind this, true}><Translate content="show" /></button>}
 
           {unless true or isNaN @state.classificationQuality
             qualityString = (@state.classificationQuality * 100).toString().split('.')[0] + '%'
-            <div>Looks like you matched about <strong>{qualityString}</strong>.</div>}
+            <div><Translate content="expert.match" /> <strong>{qualityString}</strong>.</div>}
           {if @state.classificationQuality < @props.goodClassificationCutoff
-            <div>Keep at it, all classifications are useful!</div>}
+            <div><Translate content="expert.keep" /></div>}
           {if @state.classificationQuality > @props.goodClassificationCutoff
-            <div>Keep up the good work!</div>}
+            <div><Translate content="expert.work" /></div>}
         </div>}
 
       <div>
         <strong>
           {if @state.showingExpertClassification
-            'Expert classification:'
+            'Clasificación experta:'
           else
-            'Su clasificación:'}
+            'Tu clasificación'}
         </strong>
         <ClassificationSummary workflow={@props.workflow} classification={classification} />
       </div>
@@ -275,8 +327,8 @@ Classifier = React.createClass
       <nav className="task-nav">
         {if @props.owner? and @props.project?
           [ownerName, name] = @props.project.slug.split('/')
-          <Link onClick={@props.onClickNext} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button">Talk</Link>}
-        <button type="button" className="continue major-button" onClick={@props.onClickNext}>Siguiente</button>
+          <Link onClick={@props.onClickNext} to="/projects/#{ownerName}/#{name}/talk/subjects/#{@props.subject.id}" className="talk standard-button">Discusión</Link>}
+        <button type="button" className="continue major-button" onClick={@props.onClickNext}><Translate content="next" /></button>
         {@renderExpertOptions()}
       </nav>
     </div>
@@ -290,12 +342,12 @@ Classifier = React.createClass
         <p>
           <label>
             <input type="checkbox" checked={@props.classification.gold_standard} onChange={@handleGoldStandardChange} />{' '}
-            Gold standard mode
+            <Translate content="goldMode.label" />
           </label>{' '}
           <TriggeredModalForm trigger={
             <i className="fa fa-question-circle"></i>
           }>
-            <p>A “gold standard” classification is one that is known to be completely accurate. We’ll compare other classifications against it during aggregation.</p>
+            <p><Translate content="goldMode.description" /></p>
           </TriggeredModalForm>
         </p>}
 
@@ -303,12 +355,13 @@ Classifier = React.createClass
           <p>
             <label>
               <input type="checkbox" checked={@props.demoMode} onChange={@handleDemoModeChange} />{' '}
-              Demo mode
+              <Translate content="demo.label" />
             </label>{' '}
             <TriggeredModalForm trigger={
               <i className="fa fa-question-circle"></i>
             }>
-              <p>In demo mode, classifications <strong>will not be saved</strong>. Use this for quick, inaccurate demos of the classification interface.</p>
+              <p><Translate content="demo.note" /> <strong><Translate content="demo.note2" /></strong> <Translate content="demo.note3" />
+              </p>
             </TriggeredModalForm>
           </p>}
     </TriggeredModalForm>

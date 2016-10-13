@@ -1,6 +1,16 @@
+counterpart = require 'counterpart'
 React = require 'react'
+Translate = require 'react-translate-component'
 apiClient = require 'panoptes-client/lib/api-client'
 putFile = require '../lib/put-file'
+
+counterpart.registerTranslations 'en',
+  pause: 'Pause'
+  start: 'Start'
+
+counterpart.registerTranslations 'es',
+  pause: 'Pausar'
+  start: 'Comenzar'  
 
 NOOP = Function.prototype
 
@@ -39,8 +49,8 @@ module.exports = React.createClass
         </ul>}
 
       <p className="columns-container">
-        <button type="button" className="standard-button" disabled={not @state.inProgress} onClick={@finish}>Pause</button>
-        <button type="button" className="major-button" disabled={@state.inProgress or @state.current is @props.subjects.length} onClick={@start}>Start</button>
+        <button type="button" className="standard-button" disabled={not @state.inProgress} onClick={@finish}><Translate content="pause" /></button>
+        <button type="button" className="major-button" disabled={@state.inProgress or @state.current is @props.subjects.length} onClick={@start}><Translate content="start" /></button>
       </p>
     </div>
 
