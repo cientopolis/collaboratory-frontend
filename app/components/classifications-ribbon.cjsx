@@ -8,7 +8,7 @@ counterpart.registerTranslations 'en',
 
 counterpart.registerTranslations 'es',
   body:
-    empty: "Sin clasificaciones"  
+    empty: "Sin clasificaciones por el momento"  
 
 ClassificationsRibbon = React.createClass
   displayName: 'ClassificationsRibbon'
@@ -37,7 +37,7 @@ ClassificationsRibbon = React.createClass
         height: @props.height
       }>
         
-        <span className="empty">No classifications yet</span>
+        <span className="empty"><Translate content="body.empty" /></span>
         
       </span>
 

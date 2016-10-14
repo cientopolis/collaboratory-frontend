@@ -15,9 +15,9 @@ counterpart.registerTranslations 'en',
     general: 'Get general Zooniverse email updates'
     projects: 'Get email updates from the Projects you classify on'
     beta: 'Get beta project email updates'
-  talk:
-    label: 'Talk email preferences'
-    th:
+  discussion:
+    label: 'Talk email preferences'  
+    table:
       sendMe: 'Send me an email'
       now: 'Immediately'
       daily: 'Daily'
@@ -36,15 +36,15 @@ counterpart.registerTranslations 'es',
     general: 'Recibir mails en general sobre actualizaciones en Zooniverse'
     projects: 'Recibir mails sobre actualizaciones en proyectos en los que participes'
     beta: 'Recibir mails sobre actualizaciones en proyectos en estado beta'
-  talk:
+  discussion:
     label: 'Preferencias de email para los foros de discusión'
-    th:
+    table:
       sendMe: 'Enviarme un email'
       now: 'Inmediatamente'
       daily: 'Diariamente'
       weekly: 'Semanalmente'
       never: 'Nunca'
-  project:
+  proj:
     label: 'Project email preferences'
     project: 'Project'
     page: 'Page '    
@@ -118,15 +118,15 @@ module.exports = React.createClass
         </AutoSave>
       </p>
 
-      <p><strong><Translate content="talk.label" /></strong></p>
+      <p><strong><Translate content="discussion.label" /></strong></p>
       <table className="talk-email-preferences">
         <thead>
           <tr>
-            <th><Translate content="talk.th.sendMe" /></th>
-            <th><Translate content="talk.th.now" /></th>
-            <th><Translate content="talk.th.daily" /></th>
-            <th><Translate content="talk.th.weekly" /></th>
-            <th><Translate content="talk.th.never" /></th>
+            <th><Translate content="discussion.table.sendMe" /></th>
+            <th><Translate content="discussion.table.now" /></th>
+            <th><Translate content="discussion.table.daily" /></th>
+            <th><Translate content="discussion.table.weekly" /></th>
+            <th><Translate content="discussion.table.never" /></th>
           </tr>
         </thead>
         <PromiseRenderer promise={talkClient.type('subscription_preferences').get()} pending={-> <tbody></tbody>} then={(preferences) =>
@@ -146,12 +146,12 @@ module.exports = React.createClass
         } />
       </table>
 
-      <p><strong><Translate content="project.label" /></strong></p>
+      <p><strong><Translate content="proj.label" /></strong></p>
       <table>
         <thead>
           <tr>
             <th><i className="fa fa-envelope-o fa-fw"></i></th>
-            <th><Translate content="project.project" /></th>
+            <th><Translate content="proj.project" /></th>
           </tr>
         </thead>
         <PromiseRenderer promise={@props.user.get 'project_preferences', page: @state.page} pending={=> <tbody></tbody>} then={(projectPreferences) =>
@@ -170,7 +170,7 @@ module.exports = React.createClass
               <td colSpan="2">
                 {if meta?
                   <nav className="pagination">
-                    <Translate content="project.page" /><select value={@state.page} disabled={meta.page_count < 2} onChange={(e) => @setState page: e.target.value}>
+                    <Translate content="proj.page" /><select value={@state.page} disabled={meta.page_count < 2} onChange={(e) => @setState page: e.target.value}>
                       {for p in [1..meta.page_count]
                         <option key={p} value={p}>{p}</option>}
                     </select> of {meta.page_count || '?'}
