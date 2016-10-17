@@ -55,11 +55,11 @@ counterpart.registerTranslations 'es',
       daily: 'Daily Zooniverse'
       blog: 'Blog'
     boilerplate:
-      contact: 'Contact Us'
+      contact: 'Contáctenos'
       jobs: 'Jobs'
-      privacyPolicy: 'Privacy Policy'
-      status: 'System Status'
-      security: 'Security'
+      privacyPolicy: 'Políticas de privacidad'
+      status: 'Estado del sistema'
+      security: 'Seguridad'
 
 AdminToggle = React.createClass
   displayName: 'AdminToggle'
