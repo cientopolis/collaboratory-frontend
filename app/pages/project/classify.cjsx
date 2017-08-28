@@ -107,11 +107,14 @@ module.exports = React.createClass
         throw new Error "No workflows for project #{project.id}"
         project.uncacheLink 'workflows'
       else
+        console.log("DALE");
+        console.log (workflows);
         projectIsComplete = (true for workflow in workflows when not workflow.finished_at?).length is 0
         @setState {projectIsComplete}
         randomIndex = Math.floor Math.random() * workflows.length
         # console.log 'Chose random workflow', workflows[randomIndex].id
         workflows[randomIndex]
+
 
   createNewClassification: (project, workflow) ->
     @setState {workflow}

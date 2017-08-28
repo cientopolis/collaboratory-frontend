@@ -155,6 +155,8 @@ Classifier = React.createClass
       # This is just easy access for debugging.
       window.classification = currentClassification
 
+      window.workflow = @props.workflow
+
       <div className="classifier">
         <SubjectViewer
           user={@props.user}
