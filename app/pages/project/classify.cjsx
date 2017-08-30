@@ -130,7 +130,7 @@ module.exports = React.createClass
       @getNextSubject project, workflow, subjectSet
 
     loadSubject.then (subject) =>
-      # console.log 'Creating a new classification'
+      #console.log 'Creating a new classification'
       classification = apiClient.type('classifications').create
         annotations: []
         metadata:
@@ -140,6 +140,7 @@ module.exports = React.createClass
           user_language: counterpart.getLocale()
           utc_offset: ((new Date).getTimezoneOffset() * 60).toString() # In seconds
           subject_dimensions: (null for location in subject.locations)
+          pointValue: workflow.pointValue
         links:
           project: project.id
           workflow: workflow.id
